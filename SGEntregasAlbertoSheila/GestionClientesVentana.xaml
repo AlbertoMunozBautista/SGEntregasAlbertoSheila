@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
         Title="GestionClientesVentana" Height="450" Width="800">
-    <Grid>
+   
+    
+   <!-- <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
+        <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
+        <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
+        <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardar" CanExecute="compruebaGuardar"/>
+    </Window.CommandBindings>-->
+    <Window.Resources>
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+        
+        <Style x:Key="StBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="lstClientes" Grid.Column="0" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding nombre}"/>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         
     </Grid>
 </Window>
