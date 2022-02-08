@@ -31,7 +31,7 @@
 
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="10" Background="HotPink">
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="*"/>
@@ -43,7 +43,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lstClientes" Grid.Column="0" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}">
+        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">

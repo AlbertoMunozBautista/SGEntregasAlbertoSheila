@@ -84,8 +84,8 @@ namespace SGEntregasAlbertoSheila
 
             }
         }
-        private string provincia_;
-        public string provincia
+        private int provincia_;
+        public int provincia
         {
             get { return provincia_; }
             set

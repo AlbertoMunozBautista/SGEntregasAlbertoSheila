@@ -47,6 +47,14 @@ namespace SGEntregasAlbertoSheila
         private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
+
+        }
+     
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GestionClientesVentana gestionClientesVentana = new GestionClientesVentana();
+            gestionClientesVentana.Show();
         }
     }
 }
