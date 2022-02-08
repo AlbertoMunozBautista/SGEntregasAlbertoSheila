@@ -22,6 +22,13 @@
             <Setter Property="BorderBrush" Value="DarkGray"/>
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
     </Window.Resources>
 
     <Grid Margin="10">
@@ -36,16 +43,21 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lstClientes" Grid.Column="0" >
+        <ListView x:Name="lstClientes" Grid.Column="0" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="{Binding nombre}"/>
+                        <TextBlock Text="{Binding apellidos}"/>
+                        <TextBlock Text="{Binding email}"/>
+                        <TextBlock Text="{Binding localidad}"/>
                     </StackPanel>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+        <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir"/>
+        <Button x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" Grid.Row="1" Grid.Column="2" Command="local:Comandos.Eliminar"/>
+        <Button x:Name="btnGuardar" Content="Guardar BD" Grid.Row="1" Grid.Column="3" Command="local:Comandos.Guardar"/>
     </Grid>
 </Window>

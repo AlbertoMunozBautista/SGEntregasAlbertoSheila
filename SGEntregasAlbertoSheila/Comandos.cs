@@ -30,9 +30,43 @@ namespace SGEntregasAlbertoSheila
         typeof(Comandos),
         new InputGestureCollection()
         {
-                new KeyGesture(Key.A, ModifierKeys.Control)
+                new KeyGesture(Key.E, ModifierKeys.Control)
         }
         );
+
+
+        public static RoutedUICommand Añadir = new RoutedUICommand("Comando cuando...", "Añadir",
+           typeof(Comandos),
+           new InputGestureCollection()
+           {
+                new KeyGesture(Key.B, ModifierKeys.Control)
+           }
+           );
+
+        public static RoutedUICommand Modificar = new RoutedUICommand("Comando cuando...", "Modificar",
+          typeof(Comandos),
+          new InputGestureCollection()
+          {
+                new KeyGesture(Key.M, ModifierKeys.Control)
+          }
+          );
+
+        public static RoutedUICommand Eliminar = new RoutedUICommand("Comando cuando...", "Eliminar",
+          typeof(Comandos),
+          new InputGestureCollection()
+          {
+                new KeyGesture(Key.G, ModifierKeys.Control)
+          }
+          );
+
+        public static RoutedUICommand Guardar = new RoutedUICommand("Comando cuando...", "Guardar",
+          typeof(Comandos),
+          new InputGestureCollection()
+          {
+                new KeyGesture(Key.A, ModifierKeys.Control)
+          }
+          );
+
 
     }
 }
