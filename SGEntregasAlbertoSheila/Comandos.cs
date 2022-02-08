@@ -7,7 +7,8 @@ using System.Windows.Input;
 
 namespace SGEntregasAlbertoSheila
 {
-    class Comandos
+    //Clase comandos
+    public class Comandos
     {
         public static RoutedUICommand Salir = new RoutedUICommand("Salir", "Salir",
          typeof(Comandos),
