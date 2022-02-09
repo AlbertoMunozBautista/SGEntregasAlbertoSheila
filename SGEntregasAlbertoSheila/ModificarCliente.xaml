@@ -1,0 +1,73 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.ModificarCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        mc:Ignorable="d"
+        Title="ModificarCliente" Height="350" Width="400">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Aceptar" Executed="ejecutaAceptar" CanExecute="compruebaAceptar"/>
+        <CommandBinding Command="local:Comandos.Cancelar" Executed="ejecutaCancelar" CanExecute="compruebaCancelar"/>
+    </Window.CommandBindings>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+            <Setter Property="Height" Value="15"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0">
+        <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Dni:"></TextBlock>
+                <TextBox x:Name="txtDni"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Nombre:"></TextBlock>
+                <TextBox x:Name="txtNombre"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Apellidos:"></TextBlock>
+                <TextBox x:Name="txtApellidos"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Localidad:"></TextBlock>
+                <TextBox x:Name="txtLocalidad"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email:"></TextBlock>
+                <TextBox x:Name="txtEmail"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Domicilio:"></TextBlock>
+                <TextBox x:Name="txtDomicilio"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Provincia:"></TextBlock>
+                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" SelectedIndex="0"></ComboBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+            <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Content="Aceptar" Margin="0,0,20,0"></Button>
+            <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" Margin="20,0,0,0"></Button>
+        </StackPanel>
+
+        <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
+
+    </StackPanel>
+</Window>

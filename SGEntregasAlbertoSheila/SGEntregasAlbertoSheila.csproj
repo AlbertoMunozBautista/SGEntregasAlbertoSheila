@@ -77,6 +77,9 @@
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClientesCollection.cs" />
+    <Compile Include="ModificarCliente.xaml.cs">
+      <DependentUpon>ModificarCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuOrdenadorVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,7 +12,8 @@
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
         <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
-       
+        <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
+        <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
     </Window.CommandBindings>
 
     <Window.Resources>
@@ -88,8 +89,8 @@
             </ListView.ItemTemplate>
         </ListView>
     
-    <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1"/>
+        <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1" Command="local:Comandos.Modificar"/>
         <Button x:Name="btnEliminar" Content="Eliminar" Grid.Row="1" Grid.Column="2" Command="local:Comandos.Eliminar"/>
         <Button x:Name="btnGuardar" Content="Guardar BD" Grid.Row="1" Grid.Column="3" Command="local:Comandos.Guardar"/>
     </Grid>
