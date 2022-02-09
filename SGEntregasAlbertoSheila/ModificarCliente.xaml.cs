@@ -24,12 +24,12 @@ namespace SGEntregasAlbertoSheila
 
         CollectionViewModel cvm;
         ArrayList listaProvincias = new ArrayList();
-        //private clientes cliente;
-        //private clientes copCliente;
-        public ModificarCliente(CollectionViewModel cvm)
+        private clientes cliente;
+        private clientes copCliente;
+        public ModificarCliente(clientes cli)
         {
             InitializeComponent();
-            this.cvm = cvm;
+            //this.cvm = cvm;
             //ocultar botones
             this.WindowStyle = WindowStyle.None;
 
@@ -38,6 +38,11 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            this.cliente = cli;
+            copCliente = (clientes)cliente.Clone();
+
+            this.DataContext = copCliente;
 
             cargarComboProvincias();
         }
@@ -54,24 +59,17 @@ namespace SGEntregasAlbertoSheila
                     cmbProvincia.Items.Add(pro.nombre_provincia);
                     listaProvincias.Add(pro.id_provincia);
                 }
+                cmbProvincia.SelectedIndex = cliente.provincia-1;
             }
         }
 
         private void ejecutaAceptar(object sender, ExecutedRoutedEventArgs e)
         {
 
-            
-
         }
 
         private void compruebaAceptar(object sender, CanExecuteRoutedEventArgs e)
         {
-
-            if (txtNombre.Text.Trim() != "" && txtApellidos.Text.Trim() != "" && txtEmail.Text.Trim() != "" && txtDni.Text.Trim() != "" && txtLocalidad.Text.Trim() != "" && txtDomicilio.Text.Trim() != "")
-            {
-                e.CanExecute = true;
-            }
-
 
         }
 

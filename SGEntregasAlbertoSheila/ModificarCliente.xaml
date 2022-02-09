@@ -27,37 +27,37 @@
         <StackPanel Orientation="Vertical" Margin="0,20,0,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Dni:"></TextBlock>
-                <TextBox x:Name="txtDni"></TextBox>
+                <TextBox x:Name="txtDni" Text="{Binding dni}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Nombre:"></TextBlock>
-                <TextBox x:Name="txtNombre"></TextBox>
+                <TextBox x:Name="txtNombre" Text="{Binding nombre}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Apellidos:"></TextBlock>
-                <TextBox x:Name="txtApellidos"></TextBox>
+                <TextBox x:Name="txtApellidos" Text="{Binding apellidos}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Localidad:"></TextBlock>
-                <TextBox x:Name="txtLocalidad"></TextBox>
+                <TextBox x:Name="txtLocalidad" Text="{Binding localidad}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:"></TextBlock>
-                <TextBox x:Name="txtEmail"></TextBox>
+                <TextBox x:Name="txtEmail" Text="{Binding email}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Domicilio:"></TextBlock>
-                <TextBox x:Name="txtDomicilio"></TextBox>
+                <TextBox x:Name="txtDomicilio" Text="{Binding domicilio}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Provincia:"></TextBlock>
-                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" SelectedIndex="0"></ComboBox>
+                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" ></ComboBox>
             </StackPanel>
 
         </StackPanel>

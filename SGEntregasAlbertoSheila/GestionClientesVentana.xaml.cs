@@ -67,7 +67,7 @@ namespace SGEntregasAlbertoSheila
 
         private void ejecutaModificar(object sender, ExecutedRoutedEventArgs e)
         {
-            ModificarCliente modificarCliente = new ModificarCliente(cvm);
+            ModificarCliente modificarCliente = new ModificarCliente(cvm.ListaClientes[lstClientes.SelectedIndex]);
             modificarCliente.Show();
            
         }
