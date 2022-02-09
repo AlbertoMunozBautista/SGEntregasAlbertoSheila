@@ -11,6 +11,7 @@
 
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
+        <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
        
     </Window.CommandBindings>
 
@@ -56,8 +57,7 @@
             <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-                        <Border Style="{StaticResource StBorderItem}">
+                    <Border Style="{StaticResource StBorderItem}">
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Height="20" Source="images/nombre2.png"></Image>
@@ -84,7 +84,6 @@
 
                             </StackPanel>
                         </Border>
-                    </ScrollViewer>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

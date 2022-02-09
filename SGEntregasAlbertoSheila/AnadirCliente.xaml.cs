@@ -42,6 +42,7 @@ namespace SGEntregasAlbertoSheila
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             cargarProvincias();
+             
         }
 
         private void cargarProvincias()
@@ -85,12 +86,13 @@ namespace SGEntregasAlbertoSheila
 
         private void compruebaAceptar(object sender, CanExecuteRoutedEventArgs e)
         {
-            /*
-            if (txtNombre.Text.Trim() != "" && txtApellidos.Text.Trim() != "" && txtLocalidad.Text.Trim() != "" && txtAlergias.Text.Trim() != "" && txtAdestacar.Text.Trim() != "")
+            
+            if (txtNombre.Text.Trim() != "" && txtApellidos.Text.Trim() != "" && txtEmail.Text.Trim() != "" && txtDni.Text.Trim() != "" && txtLocalidad.Text.Trim() != "" && txtDomicilio.Text.Trim() != "")
             {
                 e.CanExecute = true;
-            }*/
-            e.CanExecute = true;
+            }
+           
+            
         }
 
         private void ejecutaCancelar(object sender, ExecutedRoutedEventArgs e)

@@ -59,5 +59,10 @@ namespace SGEntregasAlbertoSheila.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        /*public void guardarDatos()
+        {
+            objBD.SaveChanges();
+        }*/
     }
 }

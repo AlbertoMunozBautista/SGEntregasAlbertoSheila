@@ -36,14 +36,14 @@
                 <TextBox x:Name="txtLocalidad" Width="100" Margin="10, 0, 0, 10"></TextBox>
                 <TextBox x:Name="txtEmail" Width="100" Margin="10, 0, 0, 10"></TextBox>
                 <TextBox x:Name="txtDomicilio" Width="100" Margin="10, 0, 0, 10"></TextBox>
-                <ComboBox x:Name="cmbProvincia" Width="100" Text="{Binding especialidad}"></ComboBox>
+                <ComboBox x:Name="cmbProvincia" Width="100" SelectedIndex="0"></ComboBox>
             </StackPanel>
 
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
             <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Content="Aceptar" Margin="0,0,20,0"></Button>
-            <Button  Command="local:Comandos.Aceptar" x:Name="btnCancelar" Content="Cancelar" Margin="20,0,0,0"></Button>
+            <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" Margin="20,0,0,0"></Button>
         </StackPanel>
 
         <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>

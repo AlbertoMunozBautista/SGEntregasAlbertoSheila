@@ -36,7 +36,8 @@ namespace SGEntregasAlbertoSheila
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
 
-            //lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
+            //ScrollBar, si en vertical no en horizontal
+            lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
         }
 
 
@@ -48,6 +49,18 @@ namespace SGEntregasAlbertoSheila
         }
 
         private void compruebaAnadir(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ejecutaGuardarBD(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            //cvm.guardarDatos();
+            cvm.objBD.SaveChanges();
+        }
+
+        private void compruebaGuardarBD(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
