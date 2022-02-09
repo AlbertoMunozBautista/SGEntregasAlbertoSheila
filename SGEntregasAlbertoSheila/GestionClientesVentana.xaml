@@ -22,6 +22,14 @@
             <Setter Property="BorderBrush" Value="DarkGray"/>
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
+        
+        <Style x:Key="StBorderItem" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="Width" Value="760"/>
+            <Setter Property="Margin" Value="4,0,0,2"/>
+        </Style>
+        
         <Style TargetType="{x:Type Button}">
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="30"/>
@@ -46,6 +54,7 @@
         <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink" >
             <ListView.ItemTemplate>
                 <DataTemplate>
+                    <Border Style="{StaticResource StBorderItem}">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Image Height="20" Source="images/nombre2.png"></Image>
@@ -71,6 +80,7 @@
                         
                         
                     </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
