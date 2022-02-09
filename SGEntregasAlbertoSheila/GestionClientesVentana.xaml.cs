@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionClientesVentana : Window
     {
+        CollectionViewModel cvm;
         public GestionClientesVentana()
         {
             InitializeComponent();
@@ -31,6 +33,22 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
         }
+
+
+        private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            AnadirCliente anadirVentana = new AnadirCliente(cvm);
+            anadirVentana.ShowDialog();
+        }
+
+        private void compruebaAnadir(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
     }
 }

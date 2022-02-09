@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnadirCliente.xaml.cs">
+      <DependentUpon>AnadirCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="clientes.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CollectionViewModel.cs" />
+    <Page Include="AnadirCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GestionClientesVentana.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +185,10 @@
       <DependentUpon>EntregasDataModel.edmx</DependentUpon>
       <LastGenOutput>EntregasDataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\nombre2.png" />
+    <Resource Include="Images\apellido.png" />
+    <Resource Include="Images\email.png" />
+    <Resource Include="Images\localidad.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
