@@ -26,7 +26,8 @@
         <Style x:Key="StBorderItem" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
-            <Setter Property="Width" Value="760"/>
+            <Setter Property="Width" Value="740"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="4,0,0,2"/>
         </Style>
         
@@ -38,6 +39,7 @@
         </Style>
 
     </Window.Resources>
+    
 
     <Grid Margin="10" Background="HotPink">
         <Grid.RowDefinitions>
@@ -50,43 +52,47 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink" >
+       
+            <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Style="{StaticResource StBorderItem}">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="20" Source="images/nombre2.png"></Image>
-                            <TextBlock Text="Nombre:" Margin="10" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding nombre}" Margin="0, 10, 10, 10"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Height="20" Source="images/apellido.png"></Image>
-                            <TextBlock Text="Apellidos:" Margin="10" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding apellidos}" Margin="0, 10, 10, 10"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image  Height="20" Source="images/email.png"></Image>
-                            <TextBlock Text="Email:" Margin="10" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding email}" Margin="0, 10, 10, 10"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Height="20" Source="images/localidad.png"></Image>
-                            <TextBlock Text="Localidad:" Margin="10" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding localidad}" Margin="0, 10, 10, 10"/>
-                          
-                        </StackPanel>
-                        
-                        
-                    </StackPanel>
-                    </Border>
+                    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                        <Border Style="{StaticResource StBorderItem}">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="20" Source="images/nombre2.png"></Image>
+                                    <TextBlock Text="Nombre:" Margin="10" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding nombre}" Margin="0, 10, 10, 10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image  Height="20" Source="images/apellido.png"></Image>
+                                    <TextBlock Text="Apellidos:" Margin="10" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding apellidos}" Margin="0, 10, 10, 10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image  Height="20" Source="images/email.png"></Image>
+                                    <TextBlock Text="Email:" Margin="10" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding email}" Margin="0, 10, 10, 10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Height="20" Source="images/localidad.png"></Image>
+                                    <TextBlock Text="Localidad:" Margin="10" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding localidad}" Margin="0, 10, 10, 10"/>
+
+                                </StackPanel>
+
+
+                            </StackPanel>
+                        </Border>
+                    </ScrollViewer>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
+    
+    <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
         <Button x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1"/>
         <Button x:Name="btnEliminar" Content="Eliminar" Grid.Row="1" Grid.Column="2" Command="local:Comandos.Eliminar"/>
         <Button x:Name="btnGuardar" Content="Guardar BD" Grid.Row="1" Grid.Column="3" Command="local:Comandos.Guardar"/>
     </Grid>
+    
 </Window>

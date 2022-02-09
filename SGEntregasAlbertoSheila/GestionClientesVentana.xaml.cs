@@ -35,6 +35,8 @@ namespace SGEntregasAlbertoSheila
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
+            //lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
         }
 
 
