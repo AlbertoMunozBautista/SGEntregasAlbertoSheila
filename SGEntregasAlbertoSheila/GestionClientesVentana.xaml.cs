@@ -56,8 +56,8 @@ namespace SGEntregasAlbertoSheila
         private void ejecutaGuardarBD(object sender, ExecutedRoutedEventArgs e)
         {
 
-            //cvm.guardarDatos();
-            cvm.objBD.SaveChanges();
+            cvm.guardarDatos();
+            //cvm.objBD.SaveChanges();
         }
 
         private void compruebaGuardarBD(object sender, CanExecuteRoutedEventArgs e)

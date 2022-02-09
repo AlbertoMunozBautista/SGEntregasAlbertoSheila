@@ -60,9 +60,9 @@ namespace SGEntregasAlbertoSheila.ViewModel
             }
         }
 
-        /*public void guardarDatos()
+        public void guardarDatos()
         {
             objBD.SaveChanges();
-        }*/
+        }
     }
 }
