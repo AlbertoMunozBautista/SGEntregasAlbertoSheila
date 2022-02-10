@@ -21,15 +21,12 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class ModificarCliente : Window
     {
-
-        CollectionViewModel cvm;
         ArrayList listaProvincias = new ArrayList();
         private clientes cliente;
         private clientes copCliente;
         public ModificarCliente(clientes cli)
         {
             InitializeComponent();
-            //this.cvm = cvm;
             //ocultar botones
             this.WindowStyle = WindowStyle.None;
 
@@ -45,6 +42,7 @@ namespace SGEntregasAlbertoSheila
             this.DataContext = copCliente;
 
             cargarComboProvincias();
+          
         }
 
         private void cargarComboProvincias()
@@ -65,11 +63,32 @@ namespace SGEntregasAlbertoSheila
 
         private void ejecutaAceptar(object sender, ExecutedRoutedEventArgs e)
         {
-
+            copCliente.provincia = int.Parse(listaProvincias[cmbProvincia.SelectedIndex].ToString());
+            actualizarProperties(copCliente, cliente);
+            this.Close();
+            MessageBox.Show("Se ha modificado el cliente correctamente", "Exito");
         }
 
         private void compruebaAceptar(object sender, CanExecuteRoutedEventArgs e)
         {
+            if (txtNombre.Text.Trim() != "" && txtApellidos.Text.Trim() != "" && txtEmail.Text.Trim() != "" && txtDni.Text.Trim() != "" 
+                && txtLocalidad.Text.Trim() != "" && txtDomicilio.Text.Trim() != "")
+            {
+               
+                e.CanExecute = true;
+            }
+        }
+
+        private void actualizarProperties(clientes clienteOrigen, clientes clienteDestino)
+        {
+
+            clienteDestino.nombre = clienteOrigen.nombre;
+            clienteDestino.apellidos = clienteOrigen.apellidos;
+            clienteDestino.email = clienteOrigen.email;
+            clienteDestino.dni = clienteOrigen.dni;
+            clienteDestino.localidad = clienteOrigen.localidad;
+            clienteDestino.domicilio = clienteOrigen.domicilio;
+            clienteDestino.provincia = clienteOrigen.provincia;
 
         }
 
