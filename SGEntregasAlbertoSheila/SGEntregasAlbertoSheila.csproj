@@ -76,6 +76,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GestionPedidosVentana.xaml.cs">
+      <DependentUpon>GestionPedidosVentana.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\ClientesCollection.cs" />
     <Compile Include="ModificarCliente.xaml.cs">
       <DependentUpon>ModificarCliente.xaml</DependentUpon>
@@ -92,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GestionClientesVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionPedidosVentana.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

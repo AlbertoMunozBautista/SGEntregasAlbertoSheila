@@ -56,5 +56,11 @@ namespace SGEntregasAlbertoSheila
             GestionClientesVentana gestionClientesVentana = new GestionClientesVentana();
             gestionClientesVentana.Show();
         }
+
+        private void gestionPedidos(object sender, MouseButtonEventArgs e)
+        {
+            GestionPedidosVentana gestionPedidosVentana = new GestionPedidosVentana();
+            gestionPedidosVentana.Show();
+        }
     }
 }
