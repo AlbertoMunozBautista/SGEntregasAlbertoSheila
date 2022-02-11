@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,12 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionPedidosVentana : Window
     {
+        CollectionViewModel cvm;
         ArrayList listaClientes = new ArrayList();
         public GestionPedidosVentana()
         {
             InitializeComponent();
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.WindowStyle = WindowStyle.None;
 
             //no redimensionable
@@ -52,7 +55,10 @@ namespace SGEntregasAlbertoSheila
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            GestionPedidosVentana2 gestionPedidos2 = new GestionPedidosVentana2();
+            int pos = cmbClientes.SelectedIndex;
+            string dniClienteSeleccionado = listaClientes[pos].ToString();
+            clientes objCliente = cvm.objBD.clientes.Find(dniClienteSeleccionado);
+            GestionPedidosVentana2 gestionPedidos2 = new GestionPedidosVentana2(objCliente);
             gestionPedidos2.ShowDialog();
         }
     }

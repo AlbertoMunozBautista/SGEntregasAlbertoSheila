@@ -19,9 +19,11 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionPedidosVentana2 : Window
     {
-        public GestionPedidosVentana2()
+        clientes cli;
+        public GestionPedidosVentana2(clientes cliente)
         {
             InitializeComponent();
+            cli = cliente;
 
             //ocultar botones
             this.WindowStyle = WindowStyle.None;
@@ -31,6 +33,7 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tbCliente.Text = cli.nombre + " " + cli.apellidos;
         }
 
         private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)

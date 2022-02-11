@@ -19,6 +19,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class AnadirPedido : Window
     {
+        
         public AnadirPedido()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            
         }
     }
 }

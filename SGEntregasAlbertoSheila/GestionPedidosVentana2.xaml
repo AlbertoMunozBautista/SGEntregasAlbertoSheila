@@ -46,11 +46,16 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" >
+            <TextBlock FontSize="16">Lista de pedidos del cliente:</TextBlock>
+            <TextBlock x:Name="tbCliente" FontSize="16" Width="Auto" Margin="10,0"></TextBlock>
+        </StackPanel>
 
-        <DataGrid x:Name="dgPedidos" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
+        <DataGrid x:Name="dgPedidos" Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Id Pedido" Binding="{Binding id_pedido}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Fecha pedido" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
@@ -68,10 +73,10 @@
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
 
-        <Button Command="local:Comandos.Añadir" x:Name="btnAnadir" Content="Añadir" Grid.Row="1" Grid.Column="0"></Button>
-        <Button Command="local:Comandos.Modificar" x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1"></Button>
-        <Button Command="local:Comandos.Eliminar" x:Name="btnEliminar" Content="Eliminar" Grid.Row="1" Grid.Column="2"></Button>
-        <Button Command="local:Comandos.Guardar" x:Name="btnGuardar" Content="Guardar BD" Grid.Row="1" Grid.Column="3"></Button>
+        <Button Command="local:Comandos.Añadir" x:Name="btnAnadir" Content="Añadir" Grid.Row="2" Grid.Column="0"></Button>
+        <Button Command="local:Comandos.Modificar" x:Name="btnModificar" Content="Modificar" Grid.Row="2" Grid.Column="1"></Button>
+        <Button Command="local:Comandos.Eliminar" x:Name="btnEliminar" Content="Eliminar" Grid.Row="2" Grid.Column="2"></Button>
+        <Button Command="local:Comandos.Guardar" x:Name="btnGuardar" Content="Guardar BD" Grid.Row="2" Grid.Column="3"></Button>
 
     </Grid>
 </Window>
