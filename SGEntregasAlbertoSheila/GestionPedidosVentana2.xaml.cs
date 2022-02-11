@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -72,6 +73,30 @@ namespace SGEntregasAlbertoSheila
         }
 
         private void compruebaModificar(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (dgPedidos.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+        }
+        private void ejecutaEliminar(object sender, ExecutedRoutedEventArgs e)
+        {
+            DialogResult dr = (DialogResult)System.Windows.MessageBox.Show("¿Estás seguro?", "ÉXITO", MessageBoxButton.YesNo);
+            int idPedido = cvm.ListaPedidos[dgPedidos.SelectedIndex].id_pedido;
+            pedidos objPedido = cvm.objBD.pedidos.Find(idPedido);
+
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                cvm.objBD.pedidos.Remove(objPedido);
+                cvm.ListaPedidos.RemoveAt(dgPedidos.SelectedIndex);
+                System.Windows.MessageBox.Show("Pedido borrado correctamente", "Exito");
+            }
+
+           
+        }
+
+
+        private void compruebaEliminar(object sender, CanExecuteRoutedEventArgs e)
         {
             if (dgPedidos.SelectedIndex != -1)
             {

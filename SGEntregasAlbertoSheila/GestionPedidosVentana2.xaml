@@ -37,6 +37,7 @@
         <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
         <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
         <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
+        <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
     </Window.CommandBindings>
 
     <Grid Margin="10">
