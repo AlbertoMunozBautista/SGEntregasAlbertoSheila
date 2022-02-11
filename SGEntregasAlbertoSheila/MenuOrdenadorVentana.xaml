@@ -30,7 +30,7 @@
         
         <Image Height="250" Grid.Column="0" Grid.Row="2" Source="images/clientitos.png" RenderTransformOrigin="0.625,0.5" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
 
-        <Image Height="250" Grid.Column="1" Grid.Row="2" Source="images/paquetito.png" MouseLeftButtonDown="gestionPedidos"/>
+        <Image Height="250" Grid.Column="1" Grid.Row="2" Source="images/paquetitoGris.png" MouseLeftButtonDown="gestionPedidos"/>
 
 
         <Image HorizontalAlignment="Left" Height="60" Grid.Column="0" Grid.Row="0" Source="images/atras.png">

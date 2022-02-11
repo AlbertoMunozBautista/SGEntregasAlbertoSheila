@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b771223fe74c46c79475e18ba36c3c37" Name="Diagram1">
-        <EntityTypeShape EntityType="entregasModel.clientes" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="entregasModel.pedidos" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="entregasModel.provincias" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="entregasModel.clientes" Width="1.5" PointX="5.25" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="entregasModel.pedidos" Width="1.5" PointX="8.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="entregasModel.provincias" Width="1.5" PointX="2.25" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="entregasModel.clientes_fk_prv" ManuallyRouted="false" />
         <AssociationConnector Association="entregasModel.pedidos_fk_cli" ManuallyRouted="false" />
       </Diagram>

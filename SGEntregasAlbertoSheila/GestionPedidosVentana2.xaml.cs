@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace SGEntregasAlbertoSheila
     public partial class GestionPedidosVentana2 : Window
     {
         clientes cli;
+        CollectionViewModel cvm;
         public GestionPedidosVentana2(clientes cliente)
         {
             InitializeComponent();
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             cli = cliente;
 
             //ocultar botones
@@ -39,11 +42,22 @@ namespace SGEntregasAlbertoSheila
         private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)
         {
 
-            AnadirPedido anadirPedido = new AnadirPedido();
+            AnadirPedido anadirPedido = new AnadirPedido(cli, cvm);
             anadirPedido.ShowDialog();
         }
 
         private void compruebaAnadir(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void ejecutaGuardarBD(object sender, ExecutedRoutedEventArgs e)
+        {
+            cvm.guardarDatos();
+            System.Windows.MessageBox.Show("Se ha guardado en la BBDD", "Éxito");
+        }
+
+        private void compruebaGuardarBD(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }

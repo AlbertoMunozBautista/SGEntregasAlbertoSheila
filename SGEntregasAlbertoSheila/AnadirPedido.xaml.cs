@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class AnadirPedido : Window
     {
-        
-        public AnadirPedido()
+        clientes cli;
+        DateTime fechaHoy = DateTime.Now;
+        CollectionViewModel cvm;
+
+        public AnadirPedido(clientes cli, CollectionViewModel cvm)
         {
             InitializeComponent();
             this.WindowStyle = WindowStyle.None;
@@ -30,7 +34,41 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
+            this.cvm = cvm;
+            this.cli = cli;
+            //Obtener el nombre del cliente seleccionado
+            txtCliente.Text = cli.nombre;
+           
+            txtFechaPedido.Text = fechaHoy.ToString("dd/MM/yyyy");
+
+
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            if(tbDescripcion.Text.Trim() == "")
+            {
+                MessageBox.Show("Debes rellenar la descripcion del pedido", "Atención");
+            }
+            else
+            {
+                pedidos objPedido = new pedidos()
+                {
+                    cliente = cli.dni,
+                    fecha_pedido = DateTime.Parse(txtFechaPedido.Text),
+                    descripcion = tbDescripcion.Text
+                };
+
+                cvm.objBD.pedidos.Add(objPedido);
+                cvm.ListaPedidos.Add(objPedido);
+                MessageBox.Show("Pedido realizado correctamente", "Éxito");
+                this.Close();
+            }
         }
     }
 }
