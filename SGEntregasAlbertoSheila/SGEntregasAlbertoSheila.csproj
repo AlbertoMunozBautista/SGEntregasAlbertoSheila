@@ -198,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clientitos.png" />
-    <Resource Include="Images\paquetito.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\atras.png" />
