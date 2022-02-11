@@ -61,5 +61,22 @@ namespace SGEntregasAlbertoSheila
         {
             e.CanExecute = true;
         }
+
+
+        private void ejecutaModificar(object sender, ExecutedRoutedEventArgs e)
+        {
+            int pos = dgPedidos.SelectedIndex;
+            ModificarPedido modificarPedido = new ModificarPedido(cli, cvm.ListaPedidos[pos]);
+            modificarPedido.ShowDialog();
+            
+        }
+
+        private void compruebaModificar(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (dgPedidos.SelectedIndex != -1)
+            {
+                e.CanExecute = true;
+            }
+        }
     }
 }

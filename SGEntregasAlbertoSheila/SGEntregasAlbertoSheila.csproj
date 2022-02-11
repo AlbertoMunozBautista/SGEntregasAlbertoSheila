@@ -90,6 +90,9 @@
     <Compile Include="ModificarCliente.xaml.cs">
       <DependentUpon>ModificarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModificarPedido.xaml.cs">
+      <DependentUpon>ModificarPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModificarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
