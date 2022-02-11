@@ -14,7 +14,7 @@
   
     </Window.CommandBindings>
 
-    <Grid ShowGridLines="False" HorizontalAlignment="Center" VerticalAlignment="Center" Background="HotPink" Height="450" Width="800">
+    <Grid ShowGridLines="False" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" Height="450" Width="800">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
