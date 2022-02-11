@@ -24,6 +24,13 @@ namespace SGEntregasAlbertoSheila
         public GestionPedidosVentana()
         {
             InitializeComponent();
+            this.WindowStyle = WindowStyle.None;
+
+            //no redimensionable
+            this.ResizeMode = ResizeMode.NoResize;
+
+            //centrar pantalla
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             cargarComboClientes();
         }
 
@@ -45,7 +52,8 @@ namespace SGEntregasAlbertoSheila
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-
+            GestionPedidosVentana2 gestionPedidos2 = new GestionPedidosVentana2();
+            gestionPedidos2.ShowDialog();
         }
     }
 }

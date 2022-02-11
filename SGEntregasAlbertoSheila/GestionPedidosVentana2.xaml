@@ -7,8 +7,8 @@
          xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
         Title="GestionPedidosVentana2" Height="450" Width="800">
-
     <Window.Resources>
+
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
 
         <Style TargetType="{x:Type DataGrid}">
@@ -33,6 +33,9 @@
         </Style>
 
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
+    </Window.CommandBindings>
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -47,12 +50,12 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="dgMedicos" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
+        <DataGrid x:Name="dgPedidos" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding cliente}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Apellidos" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Especialiadd" Binding="{Binding fecha_entrega}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Móvil" Binding="{Binding descripcion}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Id Pedido" Binding="{Binding id_pedido}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Fecha pedido" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Fecha entrega" Binding="{Binding fecha_entrega}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Descripción" Binding="{Binding descripcion}"></DataGridTextColumn>
             </DataGrid.Columns>
 
             <DataGrid.RowDetailsTemplate>

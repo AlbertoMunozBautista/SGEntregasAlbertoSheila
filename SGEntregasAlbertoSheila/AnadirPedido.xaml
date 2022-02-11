@@ -1,0 +1,43 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.AnadirPedido"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        mc:Ignorable="d"
+        Title="AñadirPedido" Height="250" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+            <Setter Property="Height" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Cliente"/>
+            <TextBlock x:Name="txtCliente"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Fecha pedido:"/>
+            <TextBlock x:Name="txtFechaPedido"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Descripción:"/>
+            <TextBox x:Name="tbDescripcion" MinLines="3"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Fecha entrega:"/>
+            <TextBlock x:Name="txtFechaEntrega"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,10">
+            <Button x:Name="btnAceptar" Margin="0,0,10,0" Height="30" Width="70">Aceptar</Button>
+            <Button x:Name="btnCancelar" Margin="10,0,0,0" Height="30" Width="70">Cancelar</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

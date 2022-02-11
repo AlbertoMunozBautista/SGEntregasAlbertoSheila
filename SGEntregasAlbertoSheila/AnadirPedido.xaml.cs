@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace SGEntregasAlbertoSheila
 {
     /// <summary>
-    /// Lógica de interacción para GestionPedidosVentana2.xaml
+    /// Lógica de interacción para AnadirPedido.xaml
     /// </summary>
-    public partial class GestionPedidosVentana2 : Window
+    public partial class AnadirPedido : Window
     {
-        public GestionPedidosVentana2()
+        public AnadirPedido()
         {
             InitializeComponent();
-
-            //ocultar botones
             this.WindowStyle = WindowStyle.None;
 
             //no redimensionable
@@ -31,18 +29,6 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-        }
-
-        private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)
-        {
-
-            AnadirPedido anadirPedido = new AnadirPedido();
-            anadirPedido.ShowDialog();
-        }
-
-        private void compruebaAnadir(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
         }
     }
 }

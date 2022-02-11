@@ -68,6 +68,9 @@
     <Compile Include="AnadirCliente.xaml.cs">
       <DependentUpon>AnadirCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnadirPedido.xaml.cs">
+      <DependentUpon>AnadirPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="clientes.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
     </Compile>
     <Compile Include="ViewModel\CollectionViewModel.cs" />
     <Page Include="AnadirCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AnadirPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
