@@ -22,8 +22,11 @@ namespace SGEntregasAlbertoSheila
     {
         CollectionViewModel cvm;
         clientes cli;
+        //variables para moder modificar
         private pedidos pedido;
         private pedidos copPedido;
+
+        //Constructor recibe el cliente al que pertenece el pedido, y el pedido (mismo) que vamos a modificar
         public ModificarPedido(clientes cli, pedidos pedido)
         {
             InitializeComponent();
@@ -34,8 +37,10 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
 
+            //pedido y copia medico que asignamos al DataContext
             this.pedido = pedido;
             copPedido = (pedidos)pedido.Clone();
             this.DataContext = copPedido;
@@ -53,6 +58,7 @@ namespace SGEntregasAlbertoSheila
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            //Si la descripcion no está vacía
             if(tbDescripcion.Text.Trim() != "")
             {
                 actualizarProperties(copPedido, pedido);
@@ -61,6 +67,7 @@ namespace SGEntregasAlbertoSheila
             }
         }
 
+        //Actualizamos los datos de la copia al pedido
         private void actualizarProperties(pedidos pedidoOrigen, pedidos pedidoDestino)
         {
             pedidoDestino.cliente = pedidoOrigen.cliente;

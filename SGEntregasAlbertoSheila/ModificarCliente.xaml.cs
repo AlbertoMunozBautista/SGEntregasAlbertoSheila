@@ -21,7 +21,10 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class ModificarCliente : Window
     {
+        //lista que contiene los id de las provincias
         ArrayList listaProvincias = new ArrayList();
+
+        
         private clientes cliente;
         private clientes copCliente;
         public ModificarCliente(clientes cli)
@@ -47,6 +50,7 @@ namespace SGEntregasAlbertoSheila
 
         private void cargarComboProvincias()
         {
+            //consulta para cargar el combo box con el nombre las provincias ( de la tabla provincias)
             using (entregasEntities objBD = new entregasEntities())
             {
                 this.cmbProvincia.Items.Clear();
@@ -54,16 +58,20 @@ namespace SGEntregasAlbertoSheila
 
                 foreach (var pro in qProvincias.ToList())
                 {
+                    //Vamos rellenando el combobox y la lista con sus id correspondientes en el mismo orden
                     cmbProvincia.Items.Add(pro.nombre_provincia);
                     listaProvincias.Add(pro.id_provincia);
                 }
+                //mostramos en el combobox la provincia que tenia elegida el cliente -1, para que sean la misma
                 cmbProvincia.SelectedIndex = cliente.provincia-1;
             }
         }
 
         private void ejecutaAceptar(object sender, ExecutedRoutedEventArgs e)
         {
+            //guardamos en copCliente.provincia el id de la provincia que el usuario ha seleccionado
             copCliente.provincia = int.Parse(listaProvincias[cmbProvincia.SelectedIndex].ToString());
+            //Llamamos a este metodo para actualizar los datos
             actualizarProperties(copCliente, cliente);
             this.Close();
             MessageBox.Show("Se ha modificado el cliente correctamente", "Exito");
@@ -71,6 +79,7 @@ namespace SGEntregasAlbertoSheila
 
         private void compruebaAceptar(object sender, CanExecuteRoutedEventArgs e)
         {
+            //Si los campos no estan vacios, habilitamos el boton aceptar
             if (txtNombre.Text.Trim() != "" && txtApellidos.Text.Trim() != "" && txtEmail.Text.Trim() != "" && txtDni.Text.Trim() != "" 
                 && txtLocalidad.Text.Trim() != "" && txtDomicilio.Text.Trim() != "")
             {
@@ -79,9 +88,9 @@ namespace SGEntregasAlbertoSheila
             }
         }
 
+        //Actualizamos los datos que antes tenia el cliente en (clienteOrigen) a clienteDestino
         private void actualizarProperties(clientes clienteOrigen, clientes clienteDestino)
         {
-
             clienteDestino.nombre = clienteOrigen.nombre;
             clienteDestino.apellidos = clienteOrigen.apellidos;
             clienteDestino.email = clienteOrigen.email;

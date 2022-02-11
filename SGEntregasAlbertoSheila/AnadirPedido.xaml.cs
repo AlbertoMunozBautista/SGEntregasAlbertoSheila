@@ -21,6 +21,7 @@ namespace SGEntregasAlbertoSheila
     public partial class AnadirPedido : Window
     {
         clientes cli;
+        //Obtenemos la fecha de hoy
         DateTime fechaHoy = DateTime.Now;
         CollectionViewModel cvm;
 
@@ -34,14 +35,15 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             this.cvm = cvm;
             this.cli = cli;
+
+
             //Obtener el nombre del cliente seleccionado
             txtCliente.Text = cli.nombre;
            
             txtFechaPedido.Text = fechaHoy.ToString("dd/MM/yyyy");
-
-
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -51,12 +53,14 @@ namespace SGEntregasAlbertoSheila
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            //Si la descripcion esta vacia, nos muestra una aviso
             if(tbDescripcion.Text.Trim() == "")
             {
                 MessageBox.Show("Debes rellenar la descripcion del pedido", "Atención");
             }
             else
             {
+                //Creamos un nuevo objeto pedido
                 pedidos objPedido = new pedidos()
                 {
                     cliente = cli.dni,
@@ -64,6 +68,7 @@ namespace SGEntregasAlbertoSheila
                     descripcion = tbDescripcion.Text
                 };
 
+                //Añadimos ese nuevo objeto de tipo pedido, a la bbdd y a la lista de pedidos que se encuentra en cvm
                 cvm.objBD.pedidos.Add(objPedido);
                 cvm.ListaPedidos.Add(objPedido);
                 MessageBox.Show("Pedido realizado correctamente", "Éxito");
