@@ -14,6 +14,7 @@
         <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
         <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
         <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
+        <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
     </Window.CommandBindings>
 
     <Window.Resources>
@@ -43,10 +44,11 @@
     </Window.Resources>
     
 
-    <Grid Margin="10" Background="HotPink">
+    <Grid Margin="10" Background="Gray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -54,8 +56,16 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-       
-            <ListView x:Name="lstClientes" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="HotPink" >
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <Image HorizontalAlignment="Left" Height="50" Grid.Column="0" Grid.Row="0" Source="images/atrasCrema.png">
+                <Image.InputBindings>
+                    <MouseBinding Gesture="LeftClick" Command="local:Comandos.Atras" />
+                </Image.InputBindings>
+            </Image>
+        </StackPanel>
+
+        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="Gray" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource StBorderItem}">
@@ -89,10 +99,10 @@
             </ListView.ItemTemplate>
         </ListView>
     
-        <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="1" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnModificar" Content="Modificar" Grid.Row="1" Grid.Column="1" Command="local:Comandos.Modificar"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" Grid.Row="1" Grid.Column="2" Command="local:Comandos.Eliminar"/>
-        <Button x:Name="btnGuardar" Content="Guardar BD" Grid.Row="1" Grid.Column="3" Command="local:Comandos.Guardar"/>
+        <Button Grid.Column="0" x:Name="btnAñadir" Content="Añadir" Grid.Row="3" Command="local:Comandos.Añadir" Margin="46,0,46.8,13" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnModificar" Content="Modificar" Grid.Row="3" Grid.Column="1" Command="local:Comandos.Modificar"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" Grid.Row="3" Grid.Column="2" Command="local:Comandos.Eliminar"/>
+        <Button x:Name="btnGuardar" Content="Guardar BD" Grid.Row="3" Grid.Column="3" Command="local:Comandos.Guardar"/>
     </Grid>
     
 </Window>

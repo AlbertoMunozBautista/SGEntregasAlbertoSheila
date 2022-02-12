@@ -220,6 +220,9 @@
       <DependentUpon>EntregasDataModel.edmx</DependentUpon>
       <LastGenOutput>EntregasDataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\atrasCrema.png" />
+    <Resource Include="Images\atrasGris.png" />
+    <Resource Include="Images\clientitosGris.png" />
     <Resource Include="Images\paquetitoGris.png" />
     <Resource Include="Images\nombre2.png" />
     <Resource Include="Images\apellido.png" />
