@@ -16,7 +16,6 @@
 
         <ObjectDataProvider ObjectType="{x:Type vm:CollectionViewModel}" x:Key="ColeccionVM">
             <ObjectDataProvider.ConstructorParameters>
-                <sys:String>32343434</sys:String>
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>
         

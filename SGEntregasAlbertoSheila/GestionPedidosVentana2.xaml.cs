@@ -33,7 +33,10 @@ namespace SGEntregasAlbertoSheila
 
             cli = cliente;
 
-            this.DataContext = cliente;
+            //le metemos al constructor del view model to lo gordo
+            ((ObjectDataProvider)this.FindResource("ColeccionVM")).ConstructorParameters.Clear();
+            ((ObjectDataProvider)this.FindResource("ColeccionVM")).ConstructorParameters.Add(cli.dni);
+            ((ObjectDataProvider)this.FindResource("ColeccionVM")).Refresh();
 
             //ocultar botones
             this.WindowStyle = WindowStyle.None;
@@ -44,7 +47,9 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tbCliente.Text = cli.nombre + " " + cli.apellidos;
+
         }
+
 
         private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)
         {
