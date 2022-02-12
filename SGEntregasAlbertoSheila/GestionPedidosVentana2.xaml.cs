@@ -26,8 +26,14 @@ namespace SGEntregasAlbertoSheila
         public GestionPedidosVentana2(clientes cliente)
         {
             InitializeComponent();
-            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
+            //cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
+            cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["ColeccionVM"]).ObjectInstance;
+
             cli = cliente;
+
+            this.DataContext = cliente;
 
             //ocultar botones
             this.WindowStyle = WindowStyle.None;

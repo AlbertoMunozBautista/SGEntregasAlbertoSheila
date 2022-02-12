@@ -6,10 +6,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace SGEntregasAlbertoSheila.ViewModel
 {
-    public class CollectionViewModel : INotifyPropertyChanged
+    public class CollectionViewModel : ObjectDataProvider, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -24,10 +25,27 @@ namespace SGEntregasAlbertoSheila.ViewModel
             cargarDatos();
         }
 
+        public CollectionViewModel(String dniCliente)
+        {
+            cargarDatos(dniCliente);
+        }
+
+        private void cargarDatos(String dniClientes)
+        {
+            ListaPedidos.Clear();
+
+            var qPedidos = from ped in objBD.pedidos where ped.cliente == dniClientes select ped;
+
+            foreach (var ped in qPedidos.ToList())
+            {
+                ListaPedidos.Add(ped);
+            }
+        }
+
         private void cargarDatos()
         {
             ListaClientes.Clear();
-            ListaPedidos.Clear();
+            
 
             var qClientes = from cli in objBD.clientes select cli;
             foreach (var clien in qClientes.ToList())
@@ -35,12 +53,7 @@ namespace SGEntregasAlbertoSheila.ViewModel
                 ListaClientes.Add(clien);
             }
 
-            var qPedidos = from ped in objBD.pedidos select ped;
-
-            foreach (var ped in qPedidos.ToList())
-            {
-                ListaPedidos.Add(ped);
-            }
+           
         }
 
         public ClientesCollection ListaClientes

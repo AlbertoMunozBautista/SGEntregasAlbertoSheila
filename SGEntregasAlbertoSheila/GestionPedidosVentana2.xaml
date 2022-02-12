@@ -4,12 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
-         xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="GestionPedidosVentana2" Height="450" Width="800" Background="Gray">
     <Window.Resources>
 
-        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+        
+        
+        <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
+
+        <ObjectDataProvider ObjectType="{x:Type vm:CollectionViewModel}" x:Key="ColeccionVM">
+            <ObjectDataProvider.ConstructorParameters>
+                <sys:String>32343434</sys:String>
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+        
+        
+        
+        
+        
 
         <Style TargetType="{x:Type DataGrid}">
 
