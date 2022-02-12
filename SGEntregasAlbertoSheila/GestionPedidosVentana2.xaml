@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
          xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
-        Title="GestionPedidosVentana2" Height="450" Width="800">
+        Title="GestionPedidosVentana2" Height="450" Width="800" Background="Gray">
     <Window.Resources>
 
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
@@ -38,6 +38,7 @@
         <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
         <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
         <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
+        <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
     </Window.CommandBindings>
 
     <Grid Margin="10">
@@ -53,6 +54,15 @@
             <RowDefinition Height="6*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <Image HorizontalAlignment="Left" Height="50" Grid.Column="0" Grid.Row="0" Source="images/atrasCrema.png">
+                <Image.InputBindings>
+                    <MouseBinding Gesture="LeftClick" Command="local:Comandos.Atras" />
+                </Image.InputBindings>
+            </Image>
+        </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" >
             <TextBlock FontSize="16">Lista de pedidos del cliente:</TextBlock>
             <TextBlock x:Name="tbCliente" FontSize="16" Width="Auto" Margin="10,0"></TextBlock>

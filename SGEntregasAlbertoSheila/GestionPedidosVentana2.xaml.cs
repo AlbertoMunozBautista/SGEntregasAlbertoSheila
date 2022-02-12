@@ -115,5 +115,19 @@ namespace SGEntregasAlbertoSheila
                 e.CanExecute = true;
             }
         }
+
+
+        private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+            MenuOrdenadorVentana menuOrdenadorVentana = new MenuOrdenadorVentana();
+            menuOrdenadorVentana.Show();
+
+        }
+
+        private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }
