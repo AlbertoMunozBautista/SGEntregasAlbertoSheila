@@ -11,6 +11,7 @@
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Salir" Executed="ejecutaSalir" CanExecute="compruebaSalir"/>
         <CommandBinding Command="local:Comandos.Ordenador" Executed="ejecutaOrdenador" CanExecute="compruebaOrdenador"/>
+        <CommandBinding Command="local:Comandos.Tablet" Executed="ejecutaTablet" CanExecute="compruebaTablet"/>
   
     </Window.CommandBindings>
 
@@ -32,8 +33,12 @@
                 <MouseBinding Gesture="LeftClick" Command="local:Comandos.Ordenador" />
             </Image.InputBindings>
         </Image>
-        
-        <Image Height="300" Grid.Column="1" Grid.Row="1" Source="images/tabletborde.png"/>
+
+        <Image Height="300" Grid.Column="1" Grid.Row="1" Source="images/tabletborde.png">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="local:Comandos.Tablet" />
+            </Image.InputBindings>
+        </Image>
 
         <Image HorizontalAlignment="Right" Height="75" Grid.Column="1" Grid.Row="0" Source="images/zalir.png">
             <Image.InputBindings>

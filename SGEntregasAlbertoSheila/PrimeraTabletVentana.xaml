@@ -4,17 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
-        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModelCliente"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ClienteViewModel"
         mc:Ignorable="d"
         Title="PrimeraTabletVentana" Height="450" Width="800">
-
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
     </Window.CommandBindings>
 
     <Window.Resources>
 
-        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+        <vm:ClienteCollectionViewModel x:Key="ClienteColeccionVM"/>
 
         <Style x:Key="StBorder" TargetType="Border">
             <Setter Property="BorderBrush" Value="DarkGray"/>
@@ -38,11 +37,11 @@
 
     </Window.Resources>
 
+
     <Grid Margin="10" Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="6*"></RowDefinition>
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -59,7 +58,7 @@
             </Image>
         </StackPanel>
 
-        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="Gray" >
+        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ClienteColeccionVM}, Path=ListaClientes}" Background="Gray" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource StBorderItem}">
@@ -86,11 +85,12 @@
 
                             </StackPanel>
 
-
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </Grid>
+    
 </Window>

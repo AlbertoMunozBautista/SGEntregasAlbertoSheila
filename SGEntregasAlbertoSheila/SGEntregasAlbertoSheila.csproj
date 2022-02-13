@@ -97,6 +97,9 @@
     <Compile Include="pedidos.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PrimeraTabletVentana.xaml.cs">
+      <DependentUpon>PrimeraTabletVentana.xaml</DependentUpon>
+    </Compile>
     <Compile Include="provincias.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModificarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrimeraTabletVentana.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

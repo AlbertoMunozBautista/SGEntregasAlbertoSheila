@@ -1,5 +1,4 @@
-﻿using SGEntregasAlbertoSheila.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +19,6 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class PrimeraTabletVentana : Window
     {
-        CollectionViewModel cvm;
         public PrimeraTabletVentana()
         {
             InitializeComponent();
@@ -34,7 +32,7 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+           // cvm = (ClienteCollectionViewModel)this.Resources["ClienteColeccionVM"];
 
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
@@ -43,8 +41,8 @@ namespace SGEntregasAlbertoSheila
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            MenuOrdenadorVentana menuOrdenadorVentana = new MenuOrdenadorVentana();
+            menuOrdenadorVentana.Show();
 
         }
 
@@ -53,4 +51,6 @@ namespace SGEntregasAlbertoSheila
             e.CanExecute = true;
         }
     }
+
+
 }
