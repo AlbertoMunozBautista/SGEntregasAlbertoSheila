@@ -41,8 +41,8 @@ namespace SGEntregasAlbertoSheila
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
-            MenuOrdenadorVentana menuOrdenadorVentana = new MenuOrdenadorVentana();
-            menuOrdenadorVentana.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
 
         }
 
