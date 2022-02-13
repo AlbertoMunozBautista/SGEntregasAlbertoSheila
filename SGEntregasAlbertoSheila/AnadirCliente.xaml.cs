@@ -1,4 +1,5 @@
-﻿using SGEntregasAlbertoSheila.ViewModel;
+﻿using SGEntregasAlbertoSheila.ClienteViewModel;
+using SGEntregasAlbertoSheila.ViewModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,11 +23,11 @@ namespace SGEntregasAlbertoSheila
     public partial class AnadirCliente : Window
     {
 
-        CollectionViewModel cvm;
+        ClienteCollectionViewModel cvm;
 
         ArrayList listaProvincias = new ArrayList();
 
-        public AnadirCliente(CollectionViewModel cvm)
+        public AnadirCliente(ClienteCollectionViewModel cvm)
         {
             InitializeComponent();
 

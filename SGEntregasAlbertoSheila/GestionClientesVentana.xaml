@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
-        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ClienteViewModel"
         mc:Ignorable="d"
         Title="GestionClientesVentana" Height="450" Width="800">
 
@@ -19,7 +19,7 @@
 
     <Window.Resources>
         
-        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+        <vm:ClienteCollectionViewModel x:Key="ClienteColeccionVM"/>
         
         <Style x:Key="StBorder" TargetType="Border">
             <Setter Property="BorderBrush" Value="DarkGray"/>
@@ -65,7 +65,7 @@
             </Image>
         </StackPanel>
 
-        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="Gray" >
+        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ClienteColeccionVM}, Path=ListaClientes}" Background="Gray" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource StBorderItem}">

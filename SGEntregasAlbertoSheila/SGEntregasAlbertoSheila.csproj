@@ -74,6 +74,7 @@
     <Compile Include="clientes.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClienteViewModel\ClienteCollectionViewModel.cs" />
     <Compile Include="EntregasDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

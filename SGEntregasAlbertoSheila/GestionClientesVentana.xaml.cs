@@ -1,4 +1,5 @@
-﻿using SGEntregasAlbertoSheila.ViewModel;
+﻿using SGEntregasAlbertoSheila.ClienteViewModel;
+using SGEntregasAlbertoSheila.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionClientesVentana : Window
     {
-        CollectionViewModel cvm;
+        ClienteCollectionViewModel cvm;
         public GestionClientesVentana()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+            cvm = (ClienteCollectionViewModel)this.Resources["ClienteColeccionVM"];
 
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);

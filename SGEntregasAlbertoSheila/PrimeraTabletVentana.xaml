@@ -1,0 +1,96 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.PrimeraTabletVentana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModelCliente"
+        mc:Ignorable="d"
+        Title="PrimeraTabletVentana" Height="450" Width="800">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
+    </Window.CommandBindings>
+
+    <Window.Resources>
+
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+
+        <Style x:Key="StBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <Style x:Key="StBorderItem" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="Width" Value="740"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="4,0,0,2"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Margin="10" Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <Image HorizontalAlignment="Left" Height="50" Grid.Column="0" Grid.Row="0" Source="images/atrasCrema.png">
+                <Image.InputBindings>
+                    <MouseBinding Gesture="LeftClick" Command="local:Comandos.Atras" />
+                </Image.InputBindings>
+            </Image>
+        </StackPanel>
+
+        <ListView x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" Background="Gray" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource StBorderItem}">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="20" Source="images/nombre2.png"></Image>
+                                <TextBlock Text="Nombre:" Margin="10" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding nombre}" Margin="0, 10, 10, 10"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image  Height="20" Source="images/apellido.png"></Image>
+                                <TextBlock Text="Apellidos:" Margin="10" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding apellidos}" Margin="0, 10, 10, 10"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image  Height="20" Source="images/email.png"></Image>
+                                <TextBlock Text="Email:" Margin="10" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding email}" Margin="0, 10, 10, 10"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="20" Source="images/localidad.png"></Image>
+                                <TextBlock Text="Localidad:" Margin="10" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding localidad}" Margin="0, 10, 10, 10"/>
+
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
