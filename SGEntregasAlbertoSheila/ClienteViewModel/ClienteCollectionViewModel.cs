@@ -36,6 +36,8 @@ namespace SGEntregasAlbertoSheila.ClienteViewModel
 
         }
 
+
+
         public ClientesCollection ListaClientes
         {
             get { return _listaClientes; }

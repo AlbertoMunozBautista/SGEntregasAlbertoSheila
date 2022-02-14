@@ -12,17 +12,8 @@
 
         
         
-        <!--<vm:CollectionViewModel x:Key="ColeccionVM"/>-->
-
-        <ObjectDataProvider ObjectType="{x:Type vm:CollectionViewModel}" x:Key="ColeccionVM">
-            <ObjectDataProvider.ConstructorParameters>
-            </ObjectDataProvider.ConstructorParameters>
-        </ObjectDataProvider>
-        
-        
-        
-        
-        
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+   
 
         <Style TargetType="{x:Type DataGrid}">
 

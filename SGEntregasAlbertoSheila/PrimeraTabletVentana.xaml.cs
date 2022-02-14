@@ -32,8 +32,6 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-           // cvm = (ClienteCollectionViewModel)this.Resources["ClienteColeccionVM"];
-
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
         }

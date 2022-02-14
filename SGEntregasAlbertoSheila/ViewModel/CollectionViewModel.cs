@@ -10,7 +10,7 @@ using System.Windows.Data;
 
 namespace SGEntregasAlbertoSheila.ViewModel
 {
-    public class CollectionViewModel : ObjectDataProvider, INotifyPropertyChanged
+    public class CollectionViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -25,16 +25,12 @@ namespace SGEntregasAlbertoSheila.ViewModel
             cargarDatos();
         }
 
-        public CollectionViewModel(String dniCliente)
-        {
-            cargarDatos(dniCliente);
-        }
 
-        private void cargarDatos(String dniClientes)
+        public void cargarPedidos(String dniClientes)
         {
             ListaPedidos.Clear();
 
-            var qPedidos = from ped in objBD.pedidos where ped.cliente == dniClientes select ped;
+            var qPedidos = from ped in objBD.pedidos where ped.cliente.Equals(dniClientes) select ped;
 
             foreach (var ped in qPedidos.ToList())
             {

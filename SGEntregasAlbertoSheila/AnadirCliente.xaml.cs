@@ -23,11 +23,11 @@ namespace SGEntregasAlbertoSheila
     public partial class AnadirCliente : Window
     {
 
-        ClienteCollectionViewModel cvm;
+        CollectionViewModel cvm;
 
         ArrayList listaProvincias = new ArrayList();
 
-        public AnadirCliente(ClienteCollectionViewModel cvm)
+        public AnadirCliente(CollectionViewModel cvm)
         {
             InitializeComponent();
 

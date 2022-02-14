@@ -22,7 +22,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionClientesVentana : Window
     {
-        ClienteCollectionViewModel cvm;
+        CollectionViewModel cvm;
         public GestionClientesVentana()
         {
             InitializeComponent();
@@ -36,7 +36,8 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            cvm = (ClienteCollectionViewModel)this.Resources["ClienteColeccionVM"];
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
 
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
