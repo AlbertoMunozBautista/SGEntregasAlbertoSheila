@@ -1,5 +1,4 @@
-﻿using SGEntregasAlbertoSheila.ClienteViewModel;
-using SGEntregasAlbertoSheila.ViewModel;
+﻿using SGEntregasAlbertoSheila.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

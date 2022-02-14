@@ -74,7 +74,6 @@
     <Compile Include="clientes.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClienteViewModel\ClienteCollectionViewModel.cs" />
     <Compile Include="Components\PedidoCard.xaml.cs">
       <DependentUpon>PedidoCard.xaml</DependentUpon>
     </Compile>
@@ -232,6 +231,7 @@
     <Resource Include="Images\atras.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\fondo.png" />
     <Content Include="EntregasDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntregasDataModel.Context.cs</LastGenOutput>
