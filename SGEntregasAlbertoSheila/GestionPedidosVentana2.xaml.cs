@@ -27,20 +27,11 @@ namespace SGEntregasAlbertoSheila
         {
             InitializeComponent();
 
-            //cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
-
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
 
             cli = cliente;
 
-
             this.cvm.cargarPedidos(cli.dni);
-
-            /*
-            //le metemos al constructor del view model to lo gordo
-            ((ObjectDataProvider)this.FindResource("ColeccionVM")).ConstructorParameters.Clear();
-            ((ObjectDataProvider)this.FindResource("ColeccionVM")).ConstructorParameters.Add(cli.dni);
-            ((ObjectDataProvider)this.FindResource("ColeccionVM")).Refresh();*/
 
             //ocultar botones
             this.WindowStyle = WindowStyle.None;

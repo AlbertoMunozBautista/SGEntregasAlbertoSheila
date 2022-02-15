@@ -20,7 +20,6 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class ModificarPedido : Window
     {
-        CollectionViewModel cvm;
         clientes cli;
         //variables para moder modificar
         private pedidos pedido;
@@ -37,8 +36,6 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
 
             //pedido y copia medico que asignamos al DataContext
             this.pedido = pedido;

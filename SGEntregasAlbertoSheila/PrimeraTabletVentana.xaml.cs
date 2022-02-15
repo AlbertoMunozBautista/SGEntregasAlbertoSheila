@@ -48,6 +48,11 @@ namespace SGEntregasAlbertoSheila
         {
             e.CanExecute = true;
         }
+
+        private void lstClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("hola");
+        }
     }
 
 
