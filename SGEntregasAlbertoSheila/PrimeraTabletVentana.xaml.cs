@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class PrimeraTabletVentana : Window
     {
+        CollectionViewModel cvm;
         public PrimeraTabletVentana()
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace SGEntregasAlbertoSheila
 
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
+
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
         }
 
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
@@ -51,7 +55,11 @@ namespace SGEntregasAlbertoSheila
 
         private void lstClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("hola");
+            String dniCliente = cvm.ListaClientes[lstClientes.SelectedIndex].dni;
+
+            SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(dniCliente);
+            segundaTabletVentana.ShowDialog();
+
         }
     }
 

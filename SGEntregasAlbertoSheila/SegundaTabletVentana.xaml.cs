@@ -19,9 +19,11 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class SegundaTabletVentana : Window
     {
-        public SegundaTabletVentana()
+        String dni;
+        public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
+            this.dni = dni;
         }
     }
 }

@@ -4,9 +4,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SGEntregasAlbertoSheila.Views"
-             mc:Ignorable="d" 
+             xmlns:components="clr-namespace:SGEntregasAlbertoSheila.Components"
+             xmlns:converters="clr-namespace:SGEntregasAlbertoSheila.Converters"
+             xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+             mc:Ignorable="d" x:Name="root"
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <converters:GreaterThanConverter x:Key="miconversor"/>
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+    </UserControl.Resources>
+
     <Grid>
-            
+        <DataGrid ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
+            <StackPanel VerticalAlignment="Top">
+        <StackPanel.Style>
+            <Style TargetType="StackPanel">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding ActualWidth, ElementName=root,
+                        Converter={StaticResource miconversor}, ConverterParameter=750}" Value="true">
+                        <Setter Property="Orientation" Value="Horizontal"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </StackPanel.Style>
+            <!--<components:PedidoCard Margin="10" idPedido="{Binding idPedido}" fechaPedido="{Binding fechaPedido}" descripcion="{Binding descripcion}"/>-->
+            <!--<components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
+            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>-->
+        </StackPanel>
+    </DataGrid>
     </Grid>
 </UserControl>
