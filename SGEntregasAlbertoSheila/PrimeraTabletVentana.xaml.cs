@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SGEntregasAlbertoSheila
 {
     /// <summary>
-    /// Lógica de interacción para MenuOrdenadorVentana.xaml
+    /// Lógica de interacción para PrimeraTabletVentana.xaml
     /// </summary>
-    public partial class MenuOrdenadorVentana : Window
+    public partial class PrimeraTabletVentana : Window
     {
-        public MenuOrdenadorVentana()
+        public PrimeraTabletVentana()
         {
             InitializeComponent();
 
@@ -32,35 +32,23 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            //ScrollBar, si en vertical no en horizontal
+            lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
         }
-
 
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
-
-            MainWindow main = new MainWindow();
-            main.Show();
-            this.Hide();
+            this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
 
         }
 
         private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
-
-        }
-     
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            GestionClientesVentana gestionClientesVentana = new GestionClientesVentana();
-            gestionClientesVentana.Show();
-        }
-
-        private void gestionPedidos(object sender, MouseButtonEventArgs e)
-        {
-            GestionPedidosVentana gestionPedidosVentana = new GestionPedidosVentana();
-            gestionPedidosVentana.Show();
         }
     }
+
+
 }

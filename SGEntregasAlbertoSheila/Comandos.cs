@@ -26,6 +26,14 @@ namespace SGEntregasAlbertoSheila
         }
         );
 
+        public static RoutedUICommand Tablet = new RoutedUICommand("Comando Tablet", "Tablet",
+       typeof(Comandos),
+       new InputGestureCollection()
+       {
+                new KeyGesture(Key.T, ModifierKeys.Control)
+       }
+       );
+
         public static RoutedUICommand Atras = new RoutedUICommand("Comando Atras", "Atras",
         typeof(Comandos),
         new InputGestureCollection()

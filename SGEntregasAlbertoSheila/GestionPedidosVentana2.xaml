@@ -1,0 +1,89 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.GestionPedidosVentana2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="GestionPedidosVentana2" Height="450" Width="800" Background="Gray">
+    <Window.Resources>
+
+        
+        
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+   
+
+        <Style TargetType="{x:Type DataGrid}">
+
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="CanUserAddRows" Value="False"></Setter>
+            <Setter Property="CanUserDeleteRows" Value="False"></Setter>
+            <Setter Property="CanUserReorderColumns" Value="False"></Setter>
+            <Setter Property="CanUserResizeColumns" Value="False"></Setter>
+            <Setter Property="CanUserSortColumns" Value="False"></Setter>
+            <Setter Property="SelectionMode" Value="Single"></Setter>
+            <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Añadir" Executed="ejecutaAnadir" CanExecute="compruebaAnadir"/>
+        <CommandBinding Command="local:Comandos.Guardar" Executed="ejecutaGuardarBD" CanExecute="compruebaGuardarBD"/>
+        <CommandBinding Command="local:Comandos.Modificar" Executed="ejecutaModificar" CanExecute="compruebaModificar"/>
+        <CommandBinding Command="local:Comandos.Eliminar" Executed="ejecutaEliminar" CanExecute="compruebaEliminar"/>
+        <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
+    </Window.CommandBindings>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <Image HorizontalAlignment="Left" Height="50" Grid.Column="0" Grid.Row="0" Source="images/atrasCrema.png">
+                <Image.InputBindings>
+                    <MouseBinding Gesture="LeftClick" Command="local:Comandos.Atras" />
+                </Image.InputBindings>
+            </Image>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" >
+            <TextBlock FontSize="16">Lista de pedidos del cliente:</TextBlock>
+            <TextBlock x:Name="tbCliente" FontSize="16" Width="Auto" Margin="10,0"></TextBlock>
+        </StackPanel>
+
+        <DataGrid x:Name="dgPedidos" Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Id Pedido" Binding="{Binding id_pedido}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Fecha pedido" Binding="{Binding fecha_pedido,StringFormat=dd/MM/yyyy}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Descripción" Binding="{Binding descripcion}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Command="local:Comandos.Añadir" x:Name="btnAnadir" Content="Añadir" Grid.Row="2" Grid.Column="0"></Button>
+        <Button Command="local:Comandos.Modificar" x:Name="btnModificar" Content="Modificar" Grid.Row="2" Grid.Column="1"></Button>
+        <Button Command="local:Comandos.Eliminar" x:Name="btnEliminar" Content="Eliminar" Grid.Row="2" Grid.Column="2"></Button>
+        <Button Command="local:Comandos.Guardar" x:Name="btnGuardar" Content="Guardar BD" Grid.Row="2" Grid.Column="3"></Button>
+
+    </Grid>
+</Window>

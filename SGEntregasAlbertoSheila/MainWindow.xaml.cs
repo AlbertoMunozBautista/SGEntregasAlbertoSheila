@@ -65,5 +65,19 @@ namespace SGEntregasAlbertoSheila
         {
             e.CanExecute = true;
         }
+
+        private void ejecutaTablet(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Hide();
+
+            PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+            primeraTabletVentana.Show();
+
+        }
+
+        private void compruebaTablet(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }

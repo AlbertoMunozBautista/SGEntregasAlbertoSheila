@@ -68,27 +68,68 @@
     <Compile Include="AnadirCliente.xaml.cs">
       <DependentUpon>AnadirCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnadirPedido.xaml.cs">
+      <DependentUpon>AnadirPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="clientes.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PedidoCard.xaml.cs">
+      <DependentUpon>PedidoCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="EntregasDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GestionPedidosVentana.xaml.cs">
+      <DependentUpon>GestionPedidosVentana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPedidosVentana2.xaml.cs">
+      <DependentUpon>GestionPedidosVentana2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\ClientesCollection.cs" />
+    <Compile Include="Model\PedidosCollection.cs" />
+    <Compile Include="ModificarCliente.xaml.cs">
+      <DependentUpon>ModificarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPedido.xaml.cs">
+      <DependentUpon>ModificarPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PrimeraTabletVentana.xaml.cs">
+      <DependentUpon>PrimeraTabletVentana.xaml</DependentUpon>
+    </Compile>
     <Compile Include="provincias.cs">
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SegundaTabletVentana.xaml.cs">
+      <DependentUpon>SegundaTabletVentana.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CollectionViewModel.cs" />
     <Page Include="AnadirCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AnadirPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\PedidoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GestionClientesVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionPedidosVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionPedidosVentana2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +160,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuOrdenadorVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrimeraTabletVentana.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SegundaTabletVentana.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,12 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clientitos.png" />
-    <Resource Include="Images\paquetito.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\atras.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\fondo.png" />
     <Content Include="EntregasDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntregasDataModel.Context.cs</LastGenOutput>
@@ -185,6 +242,10 @@
       <DependentUpon>EntregasDataModel.edmx</DependentUpon>
       <LastGenOutput>EntregasDataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\atrasCrema.png" />
+    <Resource Include="Images\atrasGris.png" />
+    <Resource Include="Images\clientitosGris.png" />
+    <Resource Include="Images\paquetitoGris.png" />
     <Resource Include="Images\nombre2.png" />
     <Resource Include="Images\apellido.png" />
     <Resource Include="Images\email.png" />

@@ -1,0 +1,30 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.GestionPedidosVentana"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        mc:Ignorable="d"
+        Title="GestionPedidosVentana" Height="202.8" Width="417.2">
+    <Window.Resources>
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+    </Window.Resources>
+
+    <Border BorderBrush="Black" BorderThickness="5">
+
+        <Grid Margin="0,0,4.2,-0.4" Background="LightGoldenrodYellow" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="cmbClientes" HorizontalAlignment="Left" Margin="212,51,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+            <TextBlock Text="Seleccione un cliente:" HorizontalAlignment="Left" Margin="62,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="123"/>
+            <Button x:Name="btnConfirmar" Content="Confirmar Cliente" HorizontalAlignment="Left" Margin="135,109,0,0" VerticalAlignment="Top" Width="113" Height="34" Click="btnConfirmar_Click"/>
+
+        </Grid>
+        
+    </Border>
+    
+   
+</Window>

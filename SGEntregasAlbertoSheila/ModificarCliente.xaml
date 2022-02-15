@@ -1,17 +1,14 @@
-﻿<Window x:Class="SGEntregasAlbertoSheila.AnadirCliente"
+﻿<Window x:Class="SGEntregasAlbertoSheila.ModificarCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
         mc:Ignorable="d"
-        Title="AnadirCliente" Height="350" Width="400">
-
-
+        Title="ModificarCliente" Height="350" Width="400">
     <Window.CommandBindings>
         <CommandBinding Command="local:Comandos.Aceptar" Executed="ejecutaAceptar" CanExecute="compruebaAceptar"/>
         <CommandBinding Command="local:Comandos.Cancelar" Executed="ejecutaCancelar" CanExecute="compruebaCancelar"/>
-
     </Window.CommandBindings>
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -30,60 +27,38 @@
         <StackPanel Orientation="Vertical" Margin="0,20,0,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Dni:"></TextBlock>
-                <TextBox x:Name="txtDni"></TextBox>
+                <TextBlock x:Name="txtDni" Text="{Binding dni}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Nombre:"></TextBlock>
-                <TextBox x:Name="txtNombre"></TextBox>
+                <TextBox x:Name="txtNombre" Text="{Binding nombre}"></TextBox>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Apellidos:"></TextBlock>
-                <TextBox x:Name="txtApellidos"></TextBox>
+                <TextBox x:Name="txtApellidos" Text="{Binding apellidos}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Localidad:"></TextBlock>
-                <TextBox x:Name="txtLocalidad"></TextBox>
+                <TextBox x:Name="txtLocalidad" Text="{Binding localidad}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:"></TextBlock>
-                <TextBox x:Name="txtEmail"></TextBox>
+                <TextBox x:Name="txtEmail" Text="{Binding email}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Domicilio:"></TextBlock>
-                <TextBox x:Name="txtDomicilio"></TextBox>
+                <TextBox x:Name="txtDomicilio" Text="{Binding domicilio}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Provincia:"></TextBlock>
-                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" SelectedIndex="0"/>
+                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" ></ComboBox>
             </StackPanel>
-            <!-- <StackPanel Orientation="Vertical">
-                
-                <TextBlock Text="Dni:"></TextBlock>
-                <TextBlock Text="Nombre:"></TextBlock>
-                <TextBlock Text="Apellidos:"></TextBlock>
-                <TextBlock Text="Localidad:"></TextBlock>
-                <TextBlock Text="Email:"></TextBlock>
-                <TextBlock Text="Domicilio:"></TextBlock>
-                <TextBlock Text="Provincia:"></TextBlock>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Vertical">
-                
-                <TextBox x:Name="txtDni"></TextBox>
-                <TextBox x:Name="txtNombre"></TextBox>
-                <TextBox x:Name="txtApellidos"></TextBox>
-                <TextBox x:Name="txtLocalidad"></TextBox>
-                <TextBox x:Name="txtEmail"></TextBox>
-                <TextBox x:Name="txtDomicilio"></TextBox>
-                <ComboBox x:Name="cmbProvincia" Width="100" SelectedIndex="0"></ComboBox>
-            </StackPanel>-->
 
         </StackPanel>
 
@@ -95,5 +70,4 @@
         <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
 
     </StackPanel>
-    
 </Window>
