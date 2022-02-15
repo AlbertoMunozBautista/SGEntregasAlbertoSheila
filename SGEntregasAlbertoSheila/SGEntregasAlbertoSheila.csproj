@@ -239,7 +239,6 @@
     <Resource Include="Images\atras.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\fondo.png" />
     <Content Include="EntregasDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntregasDataModel.Context.cs</LastGenOutput>
