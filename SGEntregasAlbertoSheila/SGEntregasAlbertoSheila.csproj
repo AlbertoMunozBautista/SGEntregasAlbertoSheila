@@ -83,6 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FirmaPedido.xaml.cs">
+      <DependentUpon>FirmaPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GestionPedidosVentana.xaml.cs">
       <DependentUpon>GestionPedidosVentana.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\PedidoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FirmaPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
