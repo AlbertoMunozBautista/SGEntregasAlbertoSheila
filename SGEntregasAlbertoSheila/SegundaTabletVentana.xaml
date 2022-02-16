@@ -14,8 +14,9 @@
         <converters:GreaterThanConverter x:Key="miconversor"/>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
-
-    <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas">
+        
         <StackPanel.Style>
             <Style TargetType="StackPanel">
                 <Style.Triggers>
@@ -26,6 +27,8 @@
                 </Style.Triggers>
             </Style>
         </StackPanel.Style>
+
+        
     </StackPanel>
-    
+    </ScrollViewer>
 </Window>
