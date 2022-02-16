@@ -23,6 +23,8 @@ namespace SGEntregasAlbertoSheila
     {
         String dni;
         CollectionViewModel cvm;
+
+        int anchooo = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
         public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
@@ -30,12 +32,18 @@ namespace SGEntregasAlbertoSheila
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             cargarTarjeta();
+
+            MessageBox.Show(anchooo.ToString());
+
         }
+
+
 
 
         private void cargarTarjeta()
         {
-            var pedi = from pe in cvm.objBD.pedidos where pe.cliente.Equals(dni)
+            var pedi = from pe in cvm.objBD.pedidos
+                       where pe.cliente.Equals(dni)
                        select pe;
 
             foreach (var item in pedi.ToList())
@@ -50,5 +58,11 @@ namespace SGEntregasAlbertoSheila
                 this.SPcontenedorTarjetas.Children.Add(tp);
             }
         }
+
     }
+
+
+
+  
+    
 }

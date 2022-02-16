@@ -19,7 +19,7 @@
         <StackPanel.Style>
             <Style TargetType="StackPanel">
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding ActualWidth, ElementName=root,
+                    <DataTrigger Binding="{Binding anchoo, ElementName=root,
                         Converter={StaticResource miconversor}, ConverterParameter=750}" Value="true">
                         <Setter Property="Orientation" Value="Horizontal"/>
                     </DataTrigger>
