@@ -15,12 +15,10 @@
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" MouseDown="panel_Touch" Orientation="Horizontal">
-            <StackPanel.Children>
-                
-            </StackPanel.Children>
+        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" MouseDown="panel_Touch" Orientation="Horizontal" Width="Auto">
+           
         
-        <StackPanel.Style>
+       <!-- <StackPanel.Style>
             <Style TargetType="StackPanel">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding anchooo, ElementName=root,
@@ -29,9 +27,17 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-        </StackPanel.Style>
+        </StackPanel.Style>-->
 
-        
-    </StackPanel>
+            <ListView x:Name="listaPedidosVentana">
+                <ListViewItem x:Name="itemPedido">
+
+                </ListViewItem>
+            </ListView>
+
+        </StackPanel>
+
+       
     </ScrollViewer>
+    
 </Window>

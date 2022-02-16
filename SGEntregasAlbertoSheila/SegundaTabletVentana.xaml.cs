@@ -2,6 +2,7 @@
 using SGEntregasAlbertoSheila.Components;
 using SGEntregasAlbertoSheila.ViewModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -82,6 +83,7 @@ namespace SGEntregasAlbertoSheila
 
         private void cargarTarjeta()
         {
+            ArrayList listaPedidos = new ArrayList();
             var pedi = from pe in cvm.objBD.pedidos
                        where pe.cliente.Equals(dni)
                        select pe;
@@ -93,9 +95,18 @@ namespace SGEntregasAlbertoSheila
                 tp.idPedido = item.id_pedido;
                 tp.fechaPedido = item.fecha_pedido;
                 tp.descripcion = item.descripcion;
+                listaPedidos.Add(tp);
 
 
-                this.SPcontenedorTarjetas.Children.Add(tp);
+                // this.SPcontenedorTarjetas.Children.Add(tp);
+                
+            }
+            int i = 0;
+
+            foreach (var item in listaPedidos)
+            {
+                listaPedidosVentana.Items.Add(listaPedidos[i]);
+                i++;
             }
         }
 
