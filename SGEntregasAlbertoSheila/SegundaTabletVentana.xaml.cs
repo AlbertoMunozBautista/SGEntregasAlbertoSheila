@@ -29,13 +29,13 @@ namespace SGEntregasAlbertoSheila
             this.dni = dni;
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
-            this.WindowStyle = WindowStyle.None;
+            //this.WindowStyle = WindowStyle.None;
 
             //no redimensionable
-            this.ResizeMode = ResizeMode.NoResize;
+            //this.ResizeMode = ResizeMode.NoResize;
 
             //centrar pantalla
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             cargarTarjeta();
         }
