@@ -11,12 +11,18 @@ namespace SGEntregasAlbertoSheila.Converters
     public class GreaterThanConverter : IValueConverter
     {
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        /*public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             double.TryParse(value.ToString(), out double doubleValue);
             double.TryParse(parameter.ToString(), out double doubleParameter);
 
             return doubleValue > doubleParameter;
+        }*/
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenhight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            return screenWidth < screenhight;
         }
 
      
