@@ -15,9 +15,7 @@
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </UserControl.Resources>
 
-<!--    <Grid>
-        <DataGrid ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">-->
-            <StackPanel VerticalAlignment="Top">
+    <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas">
         <StackPanel.Style>
             <Style TargetType="StackPanel">
                 <Style.Triggers>
@@ -28,16 +26,5 @@
                 </Style.Triggers>
             </Style>
         </StackPanel.Style>
-            <!--<components:PedidoCard Margin="10" idPedido="{Binding idPedido}" fechaPedido="{Binding fechaPedido}" descripcion="{Binding descripcion}"/>-->
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            <components:PedidoCard Margin="10" idPedido="5" fechaPedido="12/12/2022" descripcion="eeee"/>
-            </StackPanel>
-    <!--</DataGrid>
-    </Grid>-->
+    </StackPanel>
 </UserControl>

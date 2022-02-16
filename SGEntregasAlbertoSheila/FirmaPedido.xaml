@@ -45,7 +45,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,10">
-            <Button x:Name="btnAceptar" Margin="0,0,20,0" Height="30" Width="70" Click="btnAceptar_Click">Aceptar</Button>
+            <Button x:Name="btnAceptar" Margin="0,0,20,0" Height="30" Width="70">Aceptar</Button>
             <Button x:Name="btnCancelar" Margin="20,0,0,0" Height="30" Width="70" Click="btnCancelar_Click">Cancelar</Button>
         </StackPanel>
       
