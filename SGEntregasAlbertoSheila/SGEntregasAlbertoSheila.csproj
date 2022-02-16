@@ -113,9 +113,6 @@
       <DependentUpon>SegundaTabletVentana.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CollectionViewModel.cs" />
-    <Compile Include="Views\UserCardStackPanelView.xaml.cs">
-      <DependentUpon>UserCardStackPanelView.xaml</DependentUpon>
-    </Compile>
     <Page Include="AnadirCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,10 +184,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SegundaTabletVentana.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserCardStackPanelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

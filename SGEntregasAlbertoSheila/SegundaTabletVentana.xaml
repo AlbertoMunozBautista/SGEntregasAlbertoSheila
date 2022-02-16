@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
-        xmlns:views="clr-namespace:SGEntregasAlbertoSheila.Views"
         xmlns:components="clr-namespace:SGEntregasAlbertoSheila.Components"
         xmlns:converters="clr-namespace:SGEntregasAlbertoSheila.Converters"
         xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"

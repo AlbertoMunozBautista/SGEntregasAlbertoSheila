@@ -35,7 +35,7 @@ namespace SGEntregasAlbertoSheila
 
         private void cargarTarjeta()
         {
-            var pedi = from pe in cvm.objBD.pedidos
+            var pedi = from pe in cvm.objBD.pedidos where pe.cliente.Equals(dni)
                        select pe;
 
             foreach (var item in pedi.ToList())
