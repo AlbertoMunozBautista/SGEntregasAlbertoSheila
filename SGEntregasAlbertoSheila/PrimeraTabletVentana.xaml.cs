@@ -57,8 +57,18 @@ namespace SGEntregasAlbertoSheila
         {
             String dniCliente = cvm.ListaClientes[lstClientes.SelectedIndex].dni;
 
-            SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(dniCliente);
-            segundaTabletVentana.ShowDialog();
+            var pedi = from pe in cvm.objBD.pedidos
+                       where pe.cliente.Equals(dniCliente)
+                       select pe;
+            if (pedi.Count() > 0)
+            {
+                SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(dniCliente);
+                segundaTabletVentana.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Este cliente no tiene ningun pedido");
+            }
 
         }
     }

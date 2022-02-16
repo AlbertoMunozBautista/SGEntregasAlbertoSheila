@@ -1,4 +1,5 @@
-﻿using SGEntregasAlbertoSheila.Components;
+﻿using Microsoft.Win32;
+using SGEntregasAlbertoSheila.Components;
 using SGEntregasAlbertoSheila.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,25 +25,56 @@ namespace SGEntregasAlbertoSheila
         String dni;
         CollectionViewModel cvm;
 
-        int anchooo = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+        bool apaisado = false;
+
+
+        int anchooo = 0;
+        int altooo = 0;
         public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
             this.dni = dni;
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
-            //this.WindowStyle = WindowStyle.None;
+            this.WindowStyle = WindowStyle.None;
 
             //no redimensionable
-            //this.ResizeMode = ResizeMode.NoResize;
+            this.ResizeMode = ResizeMode.NoResize;
 
             //centrar pantalla
-            //this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            anchooo = int.Parse(SystemParameters.PrimaryScreenWidth.ToString());
+            altooo = int.Parse(SystemParameters.PrimaryScreenHeight.ToString());
+
+            SystemEvents.DisplaySettingsChanged += Current_SizeChanged;
 
             cargarTarjeta();
 
-            MessageBox.Show(anchooo.ToString());
 
+        }
+
+        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
+            {
+                //MessageBox.Show("apaisada" +" alto:" +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
+                SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
+                //apaisado = true;
+            }
+            else
+            {
+                //MessageBox.Show("no apaisada " + " alto: " +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
+                //apaisado = false;             
+                SPcontenedorTarjetas.Orientation = Orientation.Vertical;
+            }
+
+
+        }
+
+        private void panel_Touch(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You've touched n°" + SPcontenedorTarjetas.Children.IndexOf(sender as UIElement));
         }
 
 

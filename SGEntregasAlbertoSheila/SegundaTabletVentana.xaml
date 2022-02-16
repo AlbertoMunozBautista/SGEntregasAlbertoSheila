@@ -15,13 +15,16 @@
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas">
+        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" MouseDown="panel_Touch" Orientation="Horizontal">
+            <StackPanel.Children>
+                
+            </StackPanel.Children>
         
         <StackPanel.Style>
             <Style TargetType="StackPanel">
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding anchoo, ElementName=root,
-                        Converter={StaticResource miconversor}, ConverterParameter=750}" Value="true">
+                    <DataTrigger Binding="{Binding anchooo, ElementName=root,
+                        Converter={StaticResource miconversor}, ConverterParameter=864}" Value="true">
                         <Setter Property="Orientation" Value="Horizontal"/>
                     </DataTrigger>
                 </Style.Triggers>
