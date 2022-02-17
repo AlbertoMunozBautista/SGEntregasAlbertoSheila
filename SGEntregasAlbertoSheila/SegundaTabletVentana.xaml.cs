@@ -28,6 +28,8 @@ namespace SGEntregasAlbertoSheila
 
         bool apaisado = false;
 
+        ArrayList listaPedidos = new ArrayList();
+
 
         int anchooo = 0;
         int altooo = 0;
@@ -61,6 +63,7 @@ namespace SGEntregasAlbertoSheila
             {
                 //MessageBox.Show("apaisada" +" alto:" +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
                 SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
+           
                 //apaisado = true;
             }
             else
@@ -73,17 +76,10 @@ namespace SGEntregasAlbertoSheila
 
         }
 
-        private void panel_Touch(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You've touched n°" + SPcontenedorTarjetas.Children.IndexOf(sender as UIElement));
-        }
-
-
-
 
         private void cargarTarjeta()
         {
-            ArrayList listaPedidos = new ArrayList();
+            
             var pedi = from pe in cvm.objBD.pedidos
                        where pe.cliente.Equals(dni)
                        select pe;
@@ -98,9 +94,11 @@ namespace SGEntregasAlbertoSheila
                 listaPedidos.Add(tp);
 
 
-                // this.SPcontenedorTarjetas.Children.Add(tp);
+                this.SPcontenedorTarjetas.Children.Add(tp);
                 
             }
+
+        
             int i = 0;
 
             foreach (var item in listaPedidos)
@@ -110,6 +108,15 @@ namespace SGEntregasAlbertoSheila
             }
         }
 
+        private void listaPaquetes(object sender, SelectionChangedEventArgs e)
+        {
+            int idPaquete = cvm.ListaPedidos[listaPedidosVentana.SelectedIndex].id_pedido;
+
+            pedidos objPedido = cvm.objBD.pedidos.Find(idPaquete);
+
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
+            firmaPedido.ShowDialog();
+        }
     }
 
 

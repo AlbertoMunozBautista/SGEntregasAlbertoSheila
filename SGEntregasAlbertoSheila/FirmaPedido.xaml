@@ -26,11 +26,11 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Fecha pedido:"/>
-            <TextBlock x:Name="txtFechaPedido"/>
+            <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Descripción:"/>
-            <TextBlock x:Name="txtDescripcion" Margin="0,0,10,0" TextWrapping="Wrap" Height="50"/>
+            <TextBlock x:Name="txtDescripcion" Margin="0,0,10,0" TextWrapping="Wrap" Height="50" Text="{Binding descripcion}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Fecha entrega:"/>

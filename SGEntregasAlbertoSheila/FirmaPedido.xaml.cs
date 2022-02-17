@@ -20,9 +20,15 @@ namespace SGEntregasAlbertoSheila
     public partial class FirmaPedido : Window
     {
         DateTime fechaHoy = DateTime.Now;
-        public FirmaPedido()
+        pedidos pedido;
+        public FirmaPedido(pedidos pedido)
         {
             InitializeComponent();
+
+            this.pedido = pedido;
+
+            this.DataContext = pedido;
+
             this.WindowStyle = WindowStyle.None;
 
             //no redimensionable
