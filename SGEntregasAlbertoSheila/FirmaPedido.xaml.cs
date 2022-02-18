@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace SGEntregasAlbertoSheila
     {
         DateTime fechaHoy = DateTime.Now;
         pedidos pedido;
+        CollectionViewModel cvm;
         public FirmaPedido(pedidos pedido)
         {
             InitializeComponent();
@@ -37,6 +39,17 @@ namespace SGEntregasAlbertoSheila
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             txtFechaEntrega.Text = fechaHoy.ToString("dd/MM/yyyy");
+
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
+            cargarCliente();
+        }
+
+        private void cargarCliente()
+        {
+            clientes objCliente = cvm.objBD.clientes.Find(this.pedido.cliente);
+            txtCliente.Text = objCliente.apellidos + ", " + objCliente.nombre;
+            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

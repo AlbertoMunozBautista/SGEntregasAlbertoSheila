@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
         mc:Ignorable="d"
         Title="FirmaPedido" Height="450" Width="400">
     <Window.Resources>
+
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+
+
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="120"/>
             <Setter Property="Margin" Value="10,0,0,10"/>
@@ -26,7 +31,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Fecha pedido:"/>
-            <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido}"/>
+            <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido, StringFormat=dd/MM/yyyy}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Descripción:"/>

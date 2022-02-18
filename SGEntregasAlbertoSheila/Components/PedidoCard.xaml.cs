@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,23 +21,36 @@ namespace SGEntregasAlbertoSheila.Components
     /// </summary>
     public partial class PedidoCard : UserControl
     {
+        CollectionViewModel cvm;
         public PedidoCard()
         {
             InitializeComponent();
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.MouseLeftButtonUp += ContenedorCards_MouseLeftButtonUp;
             this.TouchDown += ContenedorCards_TouchDown;
         }
 
         private void ContenedorCards_TouchDown(object sender, TouchEventArgs e)
         {
-            MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
+            seleccionTarjetas(sender);
+       
         }
 
         private void ContenedorCards_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
-            //e.Handler = true;
+            seleccionTarjetas(sender);
+            e.Handled = true;
 
+        }
+
+        private void seleccionTarjetas(object sender)
+        {
+            //MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
+
+            pedidos objPedido = cvm.objBD.pedidos.Find(int.Parse(((PedidoCard)sender).idPedido.ToString()));
+
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
+            firmaPedido.ShowDialog();
         }
 
         public int idPedido
