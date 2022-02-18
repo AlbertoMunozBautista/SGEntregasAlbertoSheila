@@ -23,6 +23,20 @@ namespace SGEntregasAlbertoSheila.Components
         public PedidoCard()
         {
             InitializeComponent();
+            this.MouseLeftButtonUp += ContenedorCards_MouseLeftButtonUp;
+            this.TouchDown += ContenedorCards_TouchDown;
+        }
+
+        private void ContenedorCards_TouchDown(object sender, TouchEventArgs e)
+        {
+            MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
+        }
+
+        private void ContenedorCards_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
+            //e.Handler = true;
+
         }
 
         public int idPedido
@@ -54,6 +68,17 @@ namespace SGEntregasAlbertoSheila.Components
 
         public static readonly DependencyProperty descripcionProperty =
             DependencyProperty.Register("descripcion", typeof(string), typeof(PedidoCard), new PropertyMetadata(string.Empty));
+
+
+        /*ContentElementCards_MouseLeftButtonUp; object sender mousebuttoneventards  e
+            MessageBox.show((UserCard)sender).Username);
+            e.Handler = true;
+
+
+            //Otro
+            object sender , toucheventargs
+             MessageBox.show((UserCard) sender).Username);
+            e.Handler = true;*/
 
     }
 }

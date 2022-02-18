@@ -39,11 +39,11 @@
                 <ListViewItem x:Name="itemPedido"/>
             </ListView>-->
 
-            <ListView x:Name="listaPedidosVentana" Height="{Binding SPcontenedorTarjetas.Height}" Width="{Binding SPcontenedorTarjetas.Width}" SelectionChanged="listaPaquetes">
+            <!--<ListView x:Name="listaPedidosVentana" Height="{Binding SPcontenedorTarjetas.Height}" Width="{Binding SPcontenedorTarjetas.Width}" SelectionChanged="listaPaquetes">
                 <ListViewItem x:Name="itemPedido">
 
                 </ListViewItem>
-                </ListView>
+                </ListView>-->
 
         </StackPanel>
     </ScrollViewer>

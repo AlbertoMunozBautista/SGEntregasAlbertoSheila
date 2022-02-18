@@ -99,16 +99,16 @@ namespace SGEntregasAlbertoSheila
             }
 
         
-            int i = 0;
+           // int i = 0;
 
-            foreach (var item in listaPedidos)
+           /* foreach (var item in listaPedidos)
             {
                 listaPedidosVentana.Items.Add(listaPedidos[i]);
                 i++;
-            }
+            }*/
         }
 
-        private void listaPaquetes(object sender, SelectionChangedEventArgs e)
+      /*  private void listaPaquetes(object sender, SelectionChangedEventArgs e)
         {
             int idPaquete = cvm.ListaPedidos[listaPedidosVentana.SelectedIndex].id_pedido;
 
@@ -116,7 +116,7 @@ namespace SGEntregasAlbertoSheila
 
             FirmaPedido firmaPedido = new FirmaPedido(objPedido);
             firmaPedido.ShowDialog();
-        }
+        }*/
     }
 
 
