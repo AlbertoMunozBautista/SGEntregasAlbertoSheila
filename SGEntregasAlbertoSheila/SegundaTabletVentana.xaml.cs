@@ -81,7 +81,7 @@ namespace SGEntregasAlbertoSheila
         {
             
             var pedi = from pe in cvm.objBD.pedidos
-                       where pe.cliente.Equals(dni)
+                       where pe.cliente.Equals(dni) && pe.fecha_entrega == null
                        select pe;
 
             foreach (var item in pedi.ToList())

@@ -14,7 +14,7 @@
         <converters:GreaterThanConverter x:Key="miconversor"/>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" Orientation="Horizontal" Width="Auto">
 
 

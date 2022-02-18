@@ -25,7 +25,7 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Fecha Pedido:"></TextBlock>
-                <TextBlock Margin="5" HorizontalAlignment="Center" Text="{Binding fechaPedido}"/>
+                <TextBlock Margin="5" HorizontalAlignment="Center" Text="{Binding fechaPedido, StringFormat=dd/MM/yyyy}"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Descripción:"></TextBlock>

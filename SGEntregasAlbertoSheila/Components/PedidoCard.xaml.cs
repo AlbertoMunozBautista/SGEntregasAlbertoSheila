@@ -49,7 +49,7 @@ namespace SGEntregasAlbertoSheila.Components
 
             pedidos objPedido = cvm.objBD.pedidos.Find(int.Parse(((PedidoCard)sender).idPedido.ToString()));
 
-            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido, cvm);
             firmaPedido.ShowDialog();
         }
 
@@ -84,15 +84,7 @@ namespace SGEntregasAlbertoSheila.Components
             DependencyProperty.Register("descripcion", typeof(string), typeof(PedidoCard), new PropertyMetadata(string.Empty));
 
 
-        /*ContentElementCards_MouseLeftButtonUp; object sender mousebuttoneventards  e
-            MessageBox.show((UserCard)sender).Username);
-            e.Handler = true;
-
-
-            //Otro
-            object sender , toucheventargs
-             MessageBox.show((UserCard) sender).Username);
-            e.Handler = true;*/
+      
 
     }
 }
