@@ -28,10 +28,12 @@ namespace SGEntregasAlbertoSheila
         pedidos copiaPedido;
         CollectionViewModel cvm;
 
+        SegundaTabletVentana ventanaPedidos;
+
         clientes cli;
 
         byte[] firmaByte;
-        public FirmaPedido(pedidos pedido, CollectionViewModel cvm)
+        public FirmaPedido(pedidos pedido, CollectionViewModel cvm, SegundaTabletVentana ventanaPedidos)
         {
             InitializeComponent();
 
@@ -50,6 +52,7 @@ namespace SGEntregasAlbertoSheila
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             txtFechaEntrega.Text = fechaHoy.ToString("dd/MM/yyyy");
 
+            this.ventanaPedidos = ventanaPedidos;
 
             this.cvm = cvm;
 
@@ -91,12 +94,13 @@ namespace SGEntregasAlbertoSheila
 
                 MessageBox.Show("Guardado en la bbdd correctamente la entrega del pedido");
 
+                ventanaPedidos.cargarTarjeta();
+
                 //this.cvm.cargarPedidos(cli.dni);
 
-                SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(cli.dni);
-                segundaTabletVentana.cargarTarjeta();
-
                 this.Close();
+
+               
 
                 //PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
                 //primeraTabletVentana.Show();

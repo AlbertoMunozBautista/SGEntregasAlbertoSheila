@@ -87,7 +87,7 @@ namespace SGEntregasAlbertoSheila
 
             foreach (var item in pedi.ToList())
             {
-                var tp = new PedidoCard();
+                var tp = new PedidoCard(this);
 
                 tp.idPedido = item.id_pedido;
                 tp.fechaPedido = item.fecha_pedido;
@@ -97,6 +97,12 @@ namespace SGEntregasAlbertoSheila
 
                 this.SPcontenedorTarjetas.Children.Add(tp);
                 
+            }
+
+            if (SPcontenedorTarjetas.Children.Count <= 0)
+            {
+                MessageBox.Show("El cliente no tiene tarjetas.");
+                this.Close();
             }
 
         

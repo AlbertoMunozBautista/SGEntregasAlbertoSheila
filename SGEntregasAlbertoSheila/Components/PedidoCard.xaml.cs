@@ -22,12 +22,16 @@ namespace SGEntregasAlbertoSheila.Components
     public partial class PedidoCard : UserControl
     {
         CollectionViewModel cvm;
-        public PedidoCard()
+
+        SegundaTabletVentana ventanaPedidos;
+        public PedidoCard(SegundaTabletVentana ventanaPedidos)
         {
             InitializeComponent();
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.MouseLeftButtonUp += ContenedorCards_MouseLeftButtonUp;
             this.TouchDown += ContenedorCards_TouchDown;
+
+            this.ventanaPedidos = ventanaPedidos;
         }
 
         private void ContenedorCards_TouchDown(object sender, TouchEventArgs e)
@@ -49,7 +53,7 @@ namespace SGEntregasAlbertoSheila.Components
 
             pedidos objPedido = cvm.objBD.pedidos.Find(int.Parse(((PedidoCard)sender).idPedido.ToString()));
 
-            FirmaPedido firmaPedido = new FirmaPedido(objPedido, cvm);
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido, cvm, ventanaPedidos);
             firmaPedido.ShowDialog();
         }
 
