@@ -77,9 +77,10 @@ namespace SGEntregasAlbertoSheila
         }
 
 
-        private void cargarTarjeta()
+        public void cargarTarjeta()
         {
-            
+            this.SPcontenedorTarjetas.Children.Clear();
+
             var pedi = from pe in cvm.objBD.pedidos
                        where pe.cliente.Equals(dni) && pe.fecha_entrega == null
                        select pe;

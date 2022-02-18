@@ -28,6 +28,8 @@ namespace SGEntregasAlbertoSheila
         pedidos copiaPedido;
         CollectionViewModel cvm;
 
+        clientes cli;
+
         byte[] firmaByte;
         public FirmaPedido(pedidos pedido, CollectionViewModel cvm)
         {
@@ -51,13 +53,15 @@ namespace SGEntregasAlbertoSheila
 
             this.cvm = cvm;
 
-            cargarCliente();
+            this.cli = cargarCliente();
         }
 
-        private void cargarCliente()
+        private clientes cargarCliente()
         {
             clientes objCliente = cvm.objBD.clientes.Find(this.pedido.cliente);
             txtCliente.Text = objCliente.apellidos + ", " + objCliente.nombre;
+
+            return objCliente;
 
         }
 
@@ -84,12 +88,18 @@ namespace SGEntregasAlbertoSheila
                 actualizarProperties(copiaPedido, pedido);
 
                 cvm.guardarDatos();
+
                 MessageBox.Show("Guardado en la bbdd correctamente la entrega del pedido");
+
+                //this.cvm.cargarPedidos(cli.dni);
+
+                SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(cli.dni);
+                segundaTabletVentana.cargarTarjeta();
 
                 this.Close();
 
-               /* PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
-                primeraTabletVentana.Show();*/
+                //PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+                //primeraTabletVentana.Show();
             } else
             {
                 MessageBox.Show("La firma es obligatoria");
