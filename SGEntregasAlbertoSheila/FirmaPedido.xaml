@@ -1,0 +1,61 @@
+﻿<Window x:Class="SGEntregasAlbertoSheila.FirmaPedido"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
+        xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
+        mc:Ignorable="d"
+        Title="FirmaPedido" Height="450" Width="400">
+    <Window.Resources>
+
+        <vm:CollectionViewModel x:Key="ColeccionVM"/>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="10,0,0,10"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Cliente"/>
+            <TextBlock x:Name="txtCliente"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Fecha pedido:"/>
+            <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido, StringFormat=dd/MM/yyyy}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Descripción:"/>
+            <TextBlock x:Name="txtDescripcion" Margin="0,0,10,0" TextWrapping="Wrap" Height="50" Text="{Binding descripcion}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Fecha entrega:"/>
+            <TextBlock x:Name="txtFechaEntrega"/>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Firma:" HorizontalAlignment="Left"/>
+            <Border Background="White" BorderBrush="Black" BorderThickness="2"
+                Height="150" Width="250" Canvas.Top="10" Canvas.Left="10">
+                <InkCanvas Name="firmaCanvas"/>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,40,0,10">
+            
+            <Button x:Name="btnAceptar" Margin="0,0,20,0" Height="30" Width="70" Click="btnAceptar_Click">Aceptar</Button>
+            <Button x:Name="btnLimpiar" Margin="20,0,0,0" Height="30" Width="70" Click="btnLimpiar_Click">Limpiar</Button>
+            <Button x:Name="btnCancelar" Margin="40,0,0,0" Height="30" Width="70" Click="btnCancelar_Click">Cancelar</Button>
+            
+        </StackPanel>
+      
+    </StackPanel>
+</Window>

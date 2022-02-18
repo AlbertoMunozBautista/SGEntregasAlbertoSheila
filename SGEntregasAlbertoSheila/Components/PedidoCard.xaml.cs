@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,40 @@ namespace SGEntregasAlbertoSheila.Components
     /// </summary>
     public partial class PedidoCard : UserControl
     {
-        public PedidoCard()
+        CollectionViewModel cvm;
+
+        SegundaTabletVentana ventanaPedidos;
+        public PedidoCard(SegundaTabletVentana ventanaPedidos)
         {
             InitializeComponent();
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+            this.MouseLeftButtonUp += ContenedorCards_MouseLeftButtonUp;
+            this.TouchDown += ContenedorCards_TouchDown;
+
+            this.ventanaPedidos = ventanaPedidos;
+        }
+
+        private void ContenedorCards_TouchDown(object sender, TouchEventArgs e)
+        {
+            seleccionTarjetas(sender);
+       
+        }
+
+        private void ContenedorCards_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            seleccionTarjetas(sender);
+            e.Handled = true;
+
+        }
+
+        private void seleccionTarjetas(object sender)
+        {
+            //MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
+
+            pedidos objPedido = cvm.objBD.pedidos.Find(int.Parse(((PedidoCard)sender).idPedido.ToString()));
+
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido, cvm, ventanaPedidos);
+            firmaPedido.ShowDialog();
         }
 
         public int idPedido
@@ -54,6 +86,9 @@ namespace SGEntregasAlbertoSheila.Components
 
         public static readonly DependencyProperty descripcionProperty =
             DependencyProperty.Register("descripcion", typeof(string), typeof(PedidoCard), new PropertyMetadata(string.Empty));
+
+
+      
 
     }
 }

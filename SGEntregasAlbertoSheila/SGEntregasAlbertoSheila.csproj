@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -77,10 +78,14 @@
     <Compile Include="Components\PedidoCard.xaml.cs">
       <DependentUpon>PedidoCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\GreaterThanConverter.cs" />
     <Compile Include="EntregasDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntregasDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FirmaPedido.xaml.cs">
+      <DependentUpon>FirmaPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="GestionPedidosVentana.xaml.cs">
       <DependentUpon>GestionPedidosVentana.xaml</DependentUpon>
@@ -118,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\PedidoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FirmaPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,7 +240,6 @@
     <Resource Include="Images\atras.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\fondo.png" />
     <Content Include="EntregasDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntregasDataModel.Context.cs</LastGenOutput>

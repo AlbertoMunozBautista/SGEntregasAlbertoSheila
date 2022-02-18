@@ -9,9 +9,7 @@
         mc:Ignorable="d"
         Title="GestionPedidosVentana2" Height="450" Width="800" Background="Gray">
     <Window.Resources>
-
-        
-        
+      
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
    
 
@@ -75,7 +73,7 @@
         <DataGrid x:Name="dgPedidos" Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaPedidos}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Id Pedido" Binding="{Binding id_pedido}"></DataGridTextColumn>
-                <DataGridTextColumn Width="*" Header="Fecha pedido" Binding="{Binding fecha_pedido,StringFormat=dd/MM/yyyy}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Fecha pedido" Binding="{Binding fecha_pedido, StringFormat=dd/MM/yyyy}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Descripción" Binding="{Binding descripcion}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

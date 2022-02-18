@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGEntregasAlbertoSheila.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class PrimeraTabletVentana : Window
     {
+        CollectionViewModel cvm;
         public PrimeraTabletVentana()
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace SGEntregasAlbertoSheila
 
             //ScrollBar, si en vertical no en horizontal
             lstClientes.SetValue(ScrollViewer.HorizontalScrollBarVisibilityProperty, ScrollBarVisibility.Disabled);
+
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
         }
 
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
@@ -47,6 +51,29 @@ namespace SGEntregasAlbertoSheila
         private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
+        }
+
+        private void lstClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String dniCliente = cvm.ListaClientes[lstClientes.SelectedIndex].dni;
+
+            var pedidosVacios = from pe in cvm.objBD.pedidos
+                                where pe.cliente.Equals(dniCliente) && pe.fecha_entrega == null
+                                select pe;
+
+            /*var pedi = from pe in cvm.objBD.pedidos
+                       where pe.cliente.Equals(dniCliente)
+                       select pe;*/
+            if (pedidosVacios.Count() > 0)
+            {
+                SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(dniCliente);
+                segundaTabletVentana.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Este cliente no tiene ningun pedido para firmar");
+            }
+
         }
     }
 

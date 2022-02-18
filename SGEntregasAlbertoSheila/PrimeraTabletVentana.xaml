@@ -58,7 +58,7 @@
             </Image>
         </StackPanel>
 
-        <ListView Background="Gray" x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}"  >
+        <ListView Background="Gray" x:Name="lstClientes" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding Source={StaticResource ColeccionVM}, Path=ListaClientes}" SelectionChanged="lstClientes_SelectionChanged"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource StBorderItem}">

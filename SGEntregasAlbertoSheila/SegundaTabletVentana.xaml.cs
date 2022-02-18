@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using SGEntregasAlbertoSheila.Components;
+using SGEntregasAlbertoSheila.ViewModel;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +23,111 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class SegundaTabletVentana : Window
     {
-        public SegundaTabletVentana()
+        String dni;
+        CollectionViewModel cvm;
+
+        bool apaisado = false;
+
+        ArrayList listaPedidos = new ArrayList();
+
+
+        int anchooo = 0;
+        int altooo = 0;
+        public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
+            this.dni = dni;
+
+            cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+            this.WindowStyle = WindowStyle.None;
+
+            //no redimensionable
+            this.ResizeMode = ResizeMode.NoResize;
+
+            //centrar pantalla
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            anchooo = int.Parse(SystemParameters.PrimaryScreenWidth.ToString());
+            altooo = int.Parse(SystemParameters.PrimaryScreenHeight.ToString());
+
+            SystemEvents.DisplaySettingsChanged += Current_SizeChanged;
+
+            cargarTarjeta();
+
+
         }
+
+        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
+            {
+                //MessageBox.Show("apaisada" +" alto:" +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
+                SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
+           
+                //apaisado = true;
+            }
+            else
+            {
+                //MessageBox.Show("no apaisada " + " alto: " +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
+                //apaisado = false;             
+                SPcontenedorTarjetas.Orientation = Orientation.Vertical;
+            }
+
+
+        }
+
+
+        public void cargarTarjeta()
+        {
+            this.SPcontenedorTarjetas.Children.Clear();
+
+            var pedi = from pe in cvm.objBD.pedidos
+                       where pe.cliente.Equals(dni) && pe.fecha_entrega == null
+                       select pe;
+
+            foreach (var item in pedi.ToList())
+            {
+                var tp = new PedidoCard(this);
+
+                tp.idPedido = item.id_pedido;
+                tp.fechaPedido = item.fecha_pedido;
+                tp.descripcion = item.descripcion;
+                listaPedidos.Add(tp);
+
+
+                this.SPcontenedorTarjetas.Children.Add(tp);
+                
+            }
+
+            if (SPcontenedorTarjetas.Children.Count <= 0)
+            {
+                MessageBox.Show("El cliente no tiene tarjetas.");
+                this.Close();
+            }
+
+        
+           // int i = 0;
+
+           /* foreach (var item in listaPedidos)
+            {
+                listaPedidosVentana.Items.Add(listaPedidos[i]);
+                i++;
+            }*/
+        }
+
+      /*  private void listaPaquetes(object sender, SelectionChangedEventArgs e)
+        {
+            int idPaquete = cvm.ListaPedidos[listaPedidosVentana.SelectedIndex].id_pedido;
+
+            pedidos objPedido = cvm.objBD.pedidos.Find(idPaquete);
+
+            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
+            firmaPedido.ShowDialog();
+        }*/
     }
+
+
+
+  
+    
 }
