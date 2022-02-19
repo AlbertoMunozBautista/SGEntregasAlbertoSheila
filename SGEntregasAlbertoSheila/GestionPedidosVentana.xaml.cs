@@ -23,7 +23,9 @@ namespace SGEntregasAlbertoSheila
     {
         CollectionViewModel cvm;
         ArrayList listaClientes = new ArrayList();
-        public GestionPedidosVentana()
+
+        MenuOrdenadorVentana menuOrdenador;
+        public GestionPedidosVentana(MenuOrdenadorVentana menuOrdenador)
         {
             InitializeComponent();
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
@@ -31,6 +33,8 @@ namespace SGEntregasAlbertoSheila
 
             //no redimensionable
             this.ResizeMode = ResizeMode.NoResize;
+
+            this.menuOrdenador = menuOrdenador;
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -58,8 +62,20 @@ namespace SGEntregasAlbertoSheila
             int pos = cmbClientes.SelectedIndex;
             string dniClienteSeleccionado = listaClientes[pos].ToString();
             clientes objCliente = cvm.objBD.clientes.Find(dniClienteSeleccionado);
+            menuOrdenador.Close();
+            this.Close();
             GestionPedidosVentana2 gestionPedidos2 = new GestionPedidosVentana2(objCliente);
             gestionPedidos2.ShowDialog();
+        }
+
+        private void ejecutaCancelar(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void compruebaCancelar(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

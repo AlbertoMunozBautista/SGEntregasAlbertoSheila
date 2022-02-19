@@ -96,8 +96,6 @@ namespace SGEntregasAlbertoSheila
 
                 ventanaPedidos.cargarTarjeta();
 
-                //this.cvm.cargarPedidos(cli.dni);
-
                 this.Close();
 
                

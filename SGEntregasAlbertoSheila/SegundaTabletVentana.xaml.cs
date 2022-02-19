@@ -91,10 +91,26 @@ namespace SGEntregasAlbertoSheila
             {
                 MessageBox.Show("El cliente no tiene tarjetas.");
                 this.Close();
+                PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+                primeraTabletVentana.Show();
             }
         }
 
-        
+        private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+            PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+            primeraTabletVentana.Show();
+
+        }
+
+        private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+
+
     }
-   
+
 }

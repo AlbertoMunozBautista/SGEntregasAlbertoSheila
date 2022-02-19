@@ -61,11 +61,9 @@ namespace SGEntregasAlbertoSheila
                                 where pe.cliente.Equals(dniCliente) && pe.fecha_entrega == null
                                 select pe;
 
-            /*var pedi = from pe in cvm.objBD.pedidos
-                       where pe.cliente.Equals(dniCliente)
-                       select pe;*/
             if (pedidosVacios.Count() > 0)
             {
+                this.Close();
                 SegundaTabletVentana segundaTabletVentana = new SegundaTabletVentana(dniCliente);
                 segundaTabletVentana.ShowDialog();
             }
@@ -75,6 +73,8 @@ namespace SGEntregasAlbertoSheila
             }
 
         }
+
+
     }
 
 

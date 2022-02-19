@@ -53,14 +53,15 @@ namespace SGEntregasAlbertoSheila
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            this.Close();
             GestionClientesVentana gestionClientesVentana = new GestionClientesVentana();
-            gestionClientesVentana.Show();
+            gestionClientesVentana.ShowDialog();
         }
 
         private void gestionPedidos(object sender, MouseButtonEventArgs e)
         {
-            GestionPedidosVentana gestionPedidosVentana = new GestionPedidosVentana();
-            gestionPedidosVentana.Show();
+            GestionPedidosVentana gestionPedidosVentana = new GestionPedidosVentana(this);
+            gestionPedidosVentana.ShowDialog();
         }
     }
 }
