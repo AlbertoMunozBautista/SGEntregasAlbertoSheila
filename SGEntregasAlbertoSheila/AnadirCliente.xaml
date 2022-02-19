@@ -26,8 +26,10 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0">
-        <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+    <Border BorderBrush="Black" BorderThickness="5" Background="LightGoldenrodYellow">
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0">
+        <StackPanel Orientation="Vertical" Margin="0,20,0,0" >
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Dni:"></TextBlock>
                 <TextBox x:Name="txtDni"></TextBox>
@@ -62,38 +64,18 @@
                 <TextBlock Text="Provincia:"></TextBlock>
                 <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" SelectedIndex="0"/>
             </StackPanel>
-            <!-- <StackPanel Orientation="Vertical">
-                
-                <TextBlock Text="Dni:"></TextBlock>
-                <TextBlock Text="Nombre:"></TextBlock>
-                <TextBlock Text="Apellidos:"></TextBlock>
-                <TextBlock Text="Localidad:"></TextBlock>
-                <TextBlock Text="Email:"></TextBlock>
-                <TextBlock Text="Domicilio:"></TextBlock>
-                <TextBlock Text="Provincia:"></TextBlock>
-
+        
             </StackPanel>
 
-            <StackPanel Orientation="Vertical">
-                
-                <TextBox x:Name="txtDni"></TextBox>
-                <TextBox x:Name="txtNombre"></TextBox>
-                <TextBox x:Name="txtApellidos"></TextBox>
-                <TextBox x:Name="txtLocalidad"></TextBox>
-                <TextBox x:Name="txtEmail"></TextBox>
-                <TextBox x:Name="txtDomicilio"></TextBox>
-                <ComboBox x:Name="cmbProvincia" Width="100" SelectedIndex="0"></ComboBox>
-            </StackPanel>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+                <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Width="100" Height="30" Content="Aceptar" Margin="0,0,20,0"></Button>
+                <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Width="100" Height="30" Content="Cancelar" Margin="20,0,0,0"></Button>
+            </StackPanel>
+
+            <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
-            <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Content="Aceptar" Margin="0,0,20,0"></Button>
-            <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" Margin="20,0,0,0"></Button>
-        </StackPanel>
+    </Border>
 
-        <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
-
-    </StackPanel>
-    
 </Window>

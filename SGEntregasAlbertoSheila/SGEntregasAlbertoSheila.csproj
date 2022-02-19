@@ -81,7 +81,6 @@
     <Compile Include="Components\PedidoCard.xaml.cs">
       <DependentUpon>PedidoCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\GreaterThanConverter.cs" />
     <Compile Include="EntregasDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

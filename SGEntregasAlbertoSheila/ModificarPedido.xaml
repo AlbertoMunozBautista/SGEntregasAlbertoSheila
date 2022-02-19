@@ -23,23 +23,29 @@
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
     </Window.Resources>
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Cliente"/>
-            <TextBlock x:Name="txtCliente"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Fecha pedido:"/>
-            <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido, StringFormat=dd/MM/yyyy}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Descripción:"/>
-            <TextBox x:Name="tbDescripcion" MinLines="5" Margin="0,0,10,0" TextWrapping="Wrap" Text="{Binding descripcion}"/>
+
+    <Border BorderBrush="Black" BorderThickness="5" Background="LightGoldenrodYellow">
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cliente"/>
+                <TextBlock x:Name="txtCliente"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Fecha pedido:"/>
+                <TextBlock x:Name="txtFechaPedido" Text="{Binding fecha_pedido, StringFormat=dd/MM/yyyy}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Descripción:"/>
+            
+                <TextBox x:Name="tbDescripcion" Height="70" MinLines="4" MaxLines="4" Margin="0,0,10,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility ="Visible" Text="{Binding descripcion}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,10">
+                <Button x:Name="btnAceptar" Margin="0,0,10,0" Height="30" Width="70" Click="btnAceptar_Click">Aceptar</Button>
+                <Button x:Name="btnCancelar" Margin="10,0,0,0" Height="30" Width="70" Click="btnCancelar_Click">Cancelar</Button>
+            </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,10">
-            <Button x:Name="btnAceptar" Margin="0,0,10,0" Height="30" Width="70" Click="btnAceptar_Click">Aceptar</Button>
-            <Button x:Name="btnCancelar" Margin="10,0,0,0" Height="30" Width="70" Click="btnCancelar_Click">Cancelar</Button>
-        </StackPanel>
-    </StackPanel>
+    </Border>
 </Window>

@@ -23,51 +23,56 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0">
-        <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Dni:"></TextBlock>
-                <TextBlock x:Name="txtDni" Text="{Binding dni}"/>
+    <Border BorderBrush="Black" BorderThickness="5" Background="LightGoldenrodYellow">
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0">
+            <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dni:"></TextBlock>
+                    <TextBlock x:Name="txtDni" Text="{Binding dni}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nombre:"></TextBlock>
+                    <TextBox x:Name="txtNombre" Text="{Binding nombre}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Apellidos:"></TextBlock>
+                    <TextBox x:Name="txtApellidos" Text="{Binding apellidos}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Localidad:"></TextBlock>
+                    <TextBox x:Name="txtLocalidad" Text="{Binding localidad}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Email:"></TextBlock>
+                    <TextBox x:Name="txtEmail" Text="{Binding email}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Domicilio:"></TextBlock>
+                    <TextBox x:Name="txtDomicilio" Text="{Binding domicilio}"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Provincia:"></TextBlock>
+                    <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" ></ComboBox>
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Nombre:"></TextBlock>
-                <TextBox x:Name="txtNombre" Text="{Binding nombre}"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+                <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Width="100" Height="30" Content="Aceptar" Margin="0,0,20,0"></Button>
+                <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Width="100" Height="30" Content="Cancelar" Margin="20,0,0,0"></Button>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Apellidos:"></TextBlock>
-                <TextBox x:Name="txtApellidos" Text="{Binding apellidos}"></TextBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Localidad:"></TextBlock>
-                <TextBox x:Name="txtLocalidad" Text="{Binding localidad}"></TextBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Email:"></TextBlock>
-                <TextBox x:Name="txtEmail" Text="{Binding email}"></TextBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Domicilio:"></TextBlock>
-                <TextBox x:Name="txtDomicilio" Text="{Binding domicilio}"></TextBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Provincia:"></TextBlock>
-                <ComboBox x:Name="cmbProvincia" Margin="10,0,0,10" Width="100" ></ComboBox>
-            </StackPanel>
+            <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
-            <Button Command="local:Comandos.Aceptar" x:Name="btnAceptar" Content="Aceptar" Margin="0,0,20,0"></Button>
-            <Button  Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" Margin="20,0,0,0"></Button>
-        </StackPanel>
-
-        <TextBlock x:Name="txtFecha" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 20, 0, 0"></TextBlock>
-
-    </StackPanel>
+    </Border>
+    
 </Window>

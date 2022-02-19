@@ -5,13 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
         xmlns:components="clr-namespace:SGEntregasAlbertoSheila.Components"
-        xmlns:converters="clr-namespace:SGEntregasAlbertoSheila.Converters"
         xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
         Title="SegundaTabletVentana" Height="450" Width="800" x:Name="root">
 
     <Window.Resources>
-        <converters:GreaterThanConverter x:Key="miconversor"/>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">

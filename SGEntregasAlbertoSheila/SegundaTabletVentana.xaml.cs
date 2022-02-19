@@ -26,13 +26,9 @@ namespace SGEntregasAlbertoSheila
         String dni;
         CollectionViewModel cvm;
 
-        bool apaisado = false;
 
         ArrayList listaPedidos = new ArrayList();
 
-
-        int anchooo = 0;
-        int altooo = 0;
         public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
@@ -46,9 +42,7 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            anchooo = int.Parse(SystemParameters.PrimaryScreenWidth.ToString());
-            altooo = int.Parse(SystemParameters.PrimaryScreenHeight.ToString());
+        
 
             SystemEvents.DisplaySettingsChanged += Current_SizeChanged;
 
@@ -61,19 +55,13 @@ namespace SGEntregasAlbertoSheila
         {
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
-                //MessageBox.Show("apaisada" +" alto:" +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
                 SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
            
-                //apaisado = true;
             }
             else
-            {
-                //MessageBox.Show("no apaisada " + " alto: " +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
-                //apaisado = false;             
+            {          
                 SPcontenedorTarjetas.Orientation = Orientation.Vertical;
             }
-
-
         }
 
 
@@ -96,7 +84,7 @@ namespace SGEntregasAlbertoSheila
 
 
                 this.SPcontenedorTarjetas.Children.Add(tp);
-                
+
             }
 
             if (SPcontenedorTarjetas.Children.Count <= 0)
@@ -104,30 +92,9 @@ namespace SGEntregasAlbertoSheila
                 MessageBox.Show("El cliente no tiene tarjetas.");
                 this.Close();
             }
-
-        
-           // int i = 0;
-
-           /* foreach (var item in listaPedidos)
-            {
-                listaPedidosVentana.Items.Add(listaPedidos[i]);
-                i++;
-            }*/
         }
 
-      /*  private void listaPaquetes(object sender, SelectionChangedEventArgs e)
-        {
-            int idPaquete = cvm.ListaPedidos[listaPedidosVentana.SelectedIndex].id_pedido;
-
-            pedidos objPedido = cvm.objBD.pedidos.Find(idPaquete);
-
-            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
-            firmaPedido.ShowDialog();
-        }*/
+        
     }
-
-
-
-  
-    
+   
 }

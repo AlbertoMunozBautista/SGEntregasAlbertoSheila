@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
         xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
-        Title="GestionPedidosVentana" Height="202.8" Width="417.2">
+        Title="GestionPedidosVentana" Height="210" Width="410">
     <Window.Resources>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
 
     <Border BorderBrush="Black" BorderThickness="5">
 
-        <Grid Margin="0,0,4.2,-0.4" Background="LightGoldenrodYellow" >
+        <Grid Background="LightGoldenrodYellow" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
