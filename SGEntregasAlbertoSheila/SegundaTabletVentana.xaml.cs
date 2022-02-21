@@ -26,6 +26,8 @@ namespace SGEntregasAlbertoSheila
         String dni;
         CollectionViewModel cvm;
 
+        int izquierda;
+        int arriba;
 
         ArrayList listaPedidos = new ArrayList();
 
@@ -33,6 +35,8 @@ namespace SGEntregasAlbertoSheila
         {
             InitializeComponent();
             this.dni = dni;
+
+            cambiarPantalla();
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.WindowStyle = WindowStyle.None;
@@ -46,25 +50,41 @@ namespace SGEntregasAlbertoSheila
 
             SystemEvents.DisplaySettingsChanged += Current_SizeChanged;
 
+            izquierda = (int)this.Left;
+            arriba = (int)this.Top;
+
+   
+
             cargarTarjeta();
 
 
         }
 
-        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        private void cambiarPantalla()
         {
+
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
                 SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
-                this.Height = SystemParameters.PrimaryScreenHeight;
-                this.Width = SystemParameters.PrimaryScreenWidth;
+                this.Height = SystemParameters.FullPrimaryScreenHeight;
+                this.Width = SystemParameters.FullPrimaryScreenWidth;
+                scroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
             }
             else
-            {          
+            {
                 SPcontenedorTarjetas.Orientation = Orientation.Vertical;
                 this.Height = SystemParameters.PrimaryScreenHeight;
                 this.Width = SystemParameters.PrimaryScreenWidth;
+                scroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+
             }
+        }
+
+        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            cambiarPantalla();
         }
 
 
@@ -85,7 +105,7 @@ namespace SGEntregasAlbertoSheila
                 tp.descripcion = item.descripcion;
                 listaPedidos.Add(tp);
 
-
+                //this.SPcontenedorTarjetas.Children
                 this.SPcontenedorTarjetas.Children.Add(tp);
 
             }
