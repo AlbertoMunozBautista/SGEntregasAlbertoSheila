@@ -34,31 +34,33 @@ namespace SGEntregasAlbertoSheila
 
         }
 
-
+        //Abrimos la ventana principal y ocultamos esta
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
-
             MainWindow main = new MainWindow();
             main.Show();
             this.Hide();
-
         }
 
+        //Llama al metodo ejecutaAtras
         private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
 
         }
      
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //Metodo que se ejecuta si pulsamos una imagen.
+        //Cierra esta ventana y abre la de GestionClientesVentana
+        private void gestionClientesClick(object sender, MouseButtonEventArgs e)
         {
             this.Close();
             GestionClientesVentana gestionClientesVentana = new GestionClientesVentana();
             gestionClientesVentana.ShowDialog();
         }
 
-        private void gestionPedidos(object sender, MouseButtonEventArgs e)
+        //Metodo que se ejecuta si pulsamos una imagen.
+        //Cierra esta ventana y abre la de GestionPedidosVentana
+        private void gestionPedidosClick(object sender, MouseButtonEventArgs e)
         {
             GestionPedidosVentana gestionPedidosVentana = new GestionPedidosVentana(this);
             gestionPedidosVentana.ShowDialog();
