@@ -71,7 +71,9 @@ namespace SGEntregasAlbertoSheila
                 //Añadimos ese nuevo objeto de tipo pedido, a la bbdd y a la lista de pedidos que se encuentra en cvm
                 cvm.objBD.pedidos.Add(objPedido);
                 cvm.ListaPedidos.Add(objPedido);
+                //Mostramos mensaje de informacion
                 MessageBox.Show("Pedido realizado correctamente", "Éxito");
+                //Cerramos esta ventana
                 this.Close();
             }
         }
