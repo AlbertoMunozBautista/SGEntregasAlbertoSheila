@@ -56,11 +56,14 @@ namespace SGEntregasAlbertoSheila
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
                 SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
-           
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                this.Width = SystemParameters.PrimaryScreenWidth;
             }
             else
             {          
                 SPcontenedorTarjetas.Orientation = Orientation.Vertical;
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                this.Width = SystemParameters.PrimaryScreenWidth;
             }
         }
 
