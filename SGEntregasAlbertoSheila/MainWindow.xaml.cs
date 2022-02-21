@@ -36,6 +36,7 @@ namespace SGEntregasAlbertoSheila
 
         }
 
+        //Preguntamos al usuario si esta seguro de salir, y cerramos la aplicacion
         private void ejecutaSalir(object sender, ExecutedRoutedEventArgs e)
         {
             DialogResult dr = (DialogResult)System.Windows.MessageBox.Show("¿Estás seguro?", "Salir", MessageBoxButton.YesNo);
@@ -47,34 +48,37 @@ namespace SGEntregasAlbertoSheila
 
         }
 
+        //Ejecuta el metodo ejecutaSalir
         private void compruebaSalir(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
 
+        //Abrimos la ventana menuOrdenadorVentana
         private void ejecutaOrdenador(object sender, ExecutedRoutedEventArgs e)
         {
-            this.Hide();
+            this.Hide();//Ocultamos esta ventana
 
             MenuOrdenadorVentana menuOrdenadorVentana = new MenuOrdenadorVentana();
             menuOrdenadorVentana.Show();
-
         }
 
+        //Llama al metodo ejecutaOrdenador()
         private void compruebaOrdenador(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
 
+        //Abrimos la ventana primeraTabletVentana
         private void ejecutaTablet(object sender, ExecutedRoutedEventArgs e)
         {
-            this.Hide();
+            this.Hide();//Ocultamos esta ventana
 
             PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
             primeraTabletVentana.Show();
 
         }
-
+        //Llama al metodo de ejecutaTablet
         private void compruebaTablet(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
