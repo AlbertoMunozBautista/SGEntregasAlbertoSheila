@@ -75,9 +75,19 @@ namespace SGEntregasAlbertoSheila
         {
             //Guardamos en pos la fila que hemos seleccionado en la lista
             int pos = dgPedidos.SelectedIndex;
-            //Llamamos a la ventana modificar pasandole el cliente entero, y el pedido seleccionado
-            ModificarPedido modificarPedido = new ModificarPedido(cli, cvm.ListaPedidos[pos]);
-            modificarPedido.ShowDialog();
+
+            pedidos pedidoActual = cvm.ListaPedidos[pos];
+            if (pedidoActual.fecha_entrega == null)
+            {
+                //Llamamos a la ventana modificar pasandole el cliente entero, y el pedido seleccionado
+                ModificarPedido modificarPedido = new ModificarPedido(cli, cvm.ListaPedidos[pos]);
+                modificarPedido.ShowDialog();
+            } else
+            {
+                System.Windows.MessageBox.Show("Los pedidos entregados no se pueden modificar.");
+            }
+            
+           
             
         }
 

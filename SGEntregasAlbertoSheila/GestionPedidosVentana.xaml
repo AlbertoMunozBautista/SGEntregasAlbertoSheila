@@ -25,8 +25,8 @@
             </Grid.ColumnDefinitions>
             <ComboBox x:Name="cmbClientes" HorizontalAlignment="Left" Margin="212,51,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
             <TextBlock Text="Seleccione un cliente:" HorizontalAlignment="Left" Margin="62,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="123"/>
-            <Button x:Name="btnConfirmar" Content="Confirmar Cliente" HorizontalAlignment="Left" Margin="206,109,0,0" VerticalAlignment="Top" Width="113" Height="34" Click="btnConfirmar_Click"/>
-            <Button Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="72,109,0,0" VerticalAlignment="Top" Width="113" Height="34"/>
+            <Button x:Name="btnConfirmar" Content="Confirmar Cliente" HorizontalAlignment="Left"  Margin="72,109,0,0" VerticalAlignment="Top" Width="113" Height="34" Click="btnConfirmar_Click"/>
+            <Button Command="local:Comandos.Cancelar" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left"  Margin="206,109,0,0" VerticalAlignment="Top" Width="113" Height="34"/>
 
         </Grid>
         
