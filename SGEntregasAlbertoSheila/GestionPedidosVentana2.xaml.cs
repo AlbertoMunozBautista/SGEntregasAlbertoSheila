@@ -21,6 +21,7 @@ namespace SGEntregasAlbertoSheila
     /// </summary>
     public partial class GestionPedidosVentana2 : Window
     {
+        //Declaracion de variables
         clientes cli;
         CollectionViewModel cvm;
         public GestionPedidosVentana2(clientes cliente)
@@ -41,18 +42,19 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //Mostramos en esta ventana el nombre y el apellido del cliente que hemos recibido en el contructor
             tbCliente.Text = cli.nombre + " " + cli.apellidos;
 
         }
 
-
+        //Nos abre la ventana AñadirPedido
         private void ejecutaAnadir(object sender, ExecutedRoutedEventArgs e)
         {
             //Mostramos la ventana añadir pedido y le pasamos al cliente, y el collection view model
             AnadirPedido anadirPedido = new AnadirPedido(cli, cvm);
             anadirPedido.ShowDialog();
         }
-
+        //Llama al metodo ejecutaAnadir
         private void compruebaAnadir(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -65,6 +67,7 @@ namespace SGEntregasAlbertoSheila
             System.Windows.MessageBox.Show("Se ha guardado en la BBDD", "Éxito");
         }
 
+        //Llama al metodo ejecutaGuardarBD
         private void compruebaGuardarBD(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -85,10 +88,7 @@ namespace SGEntregasAlbertoSheila
             } else
             {
                 System.Windows.MessageBox.Show("Los pedidos entregados no se pueden modificar.");
-            }
-            
-           
-            
+            }            
         }
 
         private void compruebaModificar(object sender, CanExecuteRoutedEventArgs e)
@@ -119,8 +119,6 @@ namespace SGEntregasAlbertoSheila
                 cvm.ListaPedidos.RemoveAt(dgPedidos.SelectedIndex);
                 System.Windows.MessageBox.Show("Pedido borrado correctamente", "Exito");
             }
-
-           
         }
 
         //Si hay algun pedido seleccionado, nos habilita el boton eliminar
@@ -132,15 +130,15 @@ namespace SGEntregasAlbertoSheila
             }
         }
 
-
+        //Nos cierra esta ventana y nos abre la anterior (MenuOrdenadorVentana)
         private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
             MenuOrdenadorVentana menuOrdenadorVentana = new MenuOrdenadorVentana();
             menuOrdenadorVentana.Show();
-
         }
 
+        //Llama al metodo ejecutaAtras
         private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
