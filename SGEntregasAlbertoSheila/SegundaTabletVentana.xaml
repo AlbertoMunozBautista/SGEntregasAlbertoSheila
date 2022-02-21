@@ -5,47 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAlbertoSheila"
         xmlns:components="clr-namespace:SGEntregasAlbertoSheila.Components"
-        xmlns:converters="clr-namespace:SGEntregasAlbertoSheila.Converters"
         xmlns:vm="clr-namespace:SGEntregasAlbertoSheila.ViewModel"
         mc:Ignorable="d"
-        Title="SegundaTabletVentana" Height="450" Width="800" x:Name="root">
+        
+        Title="SegundaTabletVentana" Height="450" Width="800">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="local:Comandos.Atras" Executed="ejecutaAtras" CanExecute="compruebaAtras"/>
+    </Window.CommandBindings>
 
     <Window.Resources>
-        <converters:GreaterThanConverter x:Key="miconversor"/>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
     </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" Orientation="Horizontal" Width="Auto">
+    
+  <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">  
 
+        <Grid Margin="10" Background="Gray">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <!-- <StackPanel.Style>
-            <Style TargetType="StackPanel">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding anchooo, ElementName=root,
-                        Converter={StaticResource miconversor}, ConverterParameter=864}" Value="true">
-                        <Setter Property="Orientation" Value="Horizontal"/>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </StackPanel.Style>-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0" >
+                <Image HorizontalAlignment="Left" Height="50" Grid.Column="0" Grid.Row="0" Source="images/atrasCrema.png">
+                    <Image.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="local:Comandos.Atras" />
+                    </Image.InputBindings>
+                </Image>
+            </StackPanel> 
 
+            <StackPanel VerticalAlignment="Top" x:Name="SPcontenedorTarjetas" Orientation="Horizontal" Width="Auto" Grid.Row="1">
 
-            <!--<ListView  x:Name="listaPedidosVentana" Height="{Binding SPcontenedorTarjetas.Height}" Width="{Binding SPcontenedorTarjetas.Width}" SelectionChanged="listaPaquetes">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListViewItem x:Name="itemPedido"/>
-            </ListView>-->
-
-            <!--<ListView x:Name="listaPedidosVentana" Height="{Binding SPcontenedorTarjetas.Height}" Width="{Binding SPcontenedorTarjetas.Width}" SelectionChanged="listaPaquetes">
-                <ListViewItem x:Name="itemPedido">
-
-                </ListViewItem>
-                </ListView>-->
-
-        </StackPanel>
-    </ScrollViewer>
+            </StackPanel> 
+       
+        </Grid>
+   </ScrollViewer>
     
 </Window>

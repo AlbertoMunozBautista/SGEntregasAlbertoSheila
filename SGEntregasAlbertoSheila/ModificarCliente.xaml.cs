@@ -101,6 +101,7 @@ namespace SGEntregasAlbertoSheila
 
         }
 
+        //Cierra la ventana al darle al boton cancelar
         private void ejecutaCancelar(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();

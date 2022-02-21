@@ -26,17 +26,17 @@ namespace SGEntregasAlbertoSheila
         String dni;
         CollectionViewModel cvm;
 
-        bool apaisado = false;
+        int izquierda;
+        int arriba;
 
         ArrayList listaPedidos = new ArrayList();
 
-
-        int anchooo = 0;
-        int altooo = 0;
         public SegundaTabletVentana(String dni)
         {
             InitializeComponent();
             this.dni = dni;
+
+            cambiarPantalla();
 
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
             this.WindowStyle = WindowStyle.None;
@@ -46,47 +46,69 @@ namespace SGEntregasAlbertoSheila
 
             //centrar pantalla
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            anchooo = int.Parse(SystemParameters.PrimaryScreenWidth.ToString());
-            altooo = int.Parse(SystemParameters.PrimaryScreenHeight.ToString());
-
+        
+            //Evento que se lanza cuando se detecta un cambio de orientacion de pantalla
             SystemEvents.DisplaySettingsChanged += Current_SizeChanged;
+
+            izquierda = (int)this.Left;
+            arriba = (int)this.Top;
+
+   
 
             cargarTarjeta();
 
 
         }
-
-        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        //Detecta si el ancho es mayor que el alto y al reves
+        private void cambiarPantalla()
         {
+            //Si la pntalla esta en horizontal
             if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
             {
-                //MessageBox.Show("apaisada" +" alto:" +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
+                //Cambiamos la orientacion del stakcpanel
                 SPcontenedorTarjetas.Orientation = Orientation.Horizontal;
-           
-                //apaisado = true;
+                //Hacemos que el alto y el ancho sea toda la primera pantalla
+                this.Height = SystemParameters.FullPrimaryScreenHeight;
+                this.Width = SystemParameters.FullPrimaryScreenWidth;
+                //Mostramos el scroll horizontal y ocultamos el vertical
+                scroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
             }
+            //Si la pantalla esta en vertical
             else
             {
-                //MessageBox.Show("no apaisada " + " alto: " +  SystemParameters.PrimaryScreenHeight + " ancho: " + SystemParameters.PrimaryScreenWidth);
-                //apaisado = false;             
+                //Cambiamos la orientacion del stackpanel
                 SPcontenedorTarjetas.Orientation = Orientation.Vertical;
+                //Hacemos que el alto y el ancho sea toda la primera pantalla
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                this.Width = SystemParameters.PrimaryScreenWidth;
+                //Mostramos el scroll vertical y ocultamos el horizontal
+                scroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                scroll.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+
             }
-
-
         }
 
+        //Cuando se lanza este evento, llamamos al metodo cambiarPantalla()
+        private void Current_SizeChanged(object sender, EventArgs eventArgs)
+        {
+            cambiarPantalla();
+        }
 
+        //Cargamos las tarjetas en el stackpanel
         public void cargarTarjeta()
         {
             this.SPcontenedorTarjetas.Children.Clear();
 
+            //Hacemos una consulta para recoger los pedidos de un cliente en concreto y el cual no se haya entregado ya
             var pedi = from pe in cvm.objBD.pedidos
                        where pe.cliente.Equals(dni) && pe.fecha_entrega == null
                        select pe;
 
+            //Recorremos la lista de los pedidos obtenidos en la consulta
             foreach (var item in pedi.ToList())
             {
+                //Creamos una nueva tarjeta
                 var tp = new PedidoCard(this);
 
                 tp.idPedido = item.id_pedido;
@@ -94,40 +116,35 @@ namespace SGEntregasAlbertoSheila
                 tp.descripcion = item.descripcion;
                 listaPedidos.Add(tp);
 
-
+                //Añadimos cada tarjeta al stack panel que las muestra
                 this.SPcontenedorTarjetas.Children.Add(tp);
-                
+
             }
 
+            //Si el stack panel no es rellenado por ningun pedido, avisamos y nos vamos a la ventana anterior
             if (SPcontenedorTarjetas.Children.Count <= 0)
             {
                 MessageBox.Show("El cliente no tiene tarjetas.");
                 this.Close();
+                PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+                primeraTabletVentana.Show();
             }
-
-        
-           // int i = 0;
-
-           /* foreach (var item in listaPedidos)
-            {
-                listaPedidosVentana.Items.Add(listaPedidos[i]);
-                i++;
-            }*/
         }
 
-      /*  private void listaPaquetes(object sender, SelectionChangedEventArgs e)
+        //Cierra esta ventana y abre primeraTabletVentana
+        private void ejecutaAtras(object sender, ExecutedRoutedEventArgs e)
         {
-            int idPaquete = cvm.ListaPedidos[listaPedidosVentana.SelectedIndex].id_pedido;
+            this.Close();
+            PrimeraTabletVentana primeraTabletVentana = new PrimeraTabletVentana();
+            primeraTabletVentana.Show();
 
-            pedidos objPedido = cvm.objBD.pedidos.Find(idPaquete);
+        }
 
-            FirmaPedido firmaPedido = new FirmaPedido(objPedido);
-            firmaPedido.ShowDialog();
-        }*/
+        private void compruebaAtras(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
     }
 
-
-
-  
-    
 }

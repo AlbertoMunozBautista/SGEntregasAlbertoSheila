@@ -28,9 +28,9 @@
         <TextBlock Text="Gestión de clientes" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Grid.Column="0" Grid.Row="1"></TextBlock>
         <TextBlock Text="Gestión de pedidos" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Grid.Column="1" Grid.Row="1"></TextBlock>
         
-        <Image Height="250" Grid.Column="0" Grid.Row="2" Source="images/clientitosGris.png" RenderTransformOrigin="0.625,0.5" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Image Height="250" Grid.Column="0" Grid.Row="2" Source="images/clientitosGris.png" RenderTransformOrigin="0.625,0.5" MouseLeftButtonDown="gestionClientesClick"/>
 
-        <Image Height="250" Grid.Column="1" Grid.Row="2" Source="images/paquetitoGris.png" MouseLeftButtonDown="gestionPedidos"/>
+        <Image Height="250" Grid.Column="1" Grid.Row="2" Source="images/paquetitoGris.png" MouseLeftButtonDown="gestionPedidosClick"/>
 
 
         <Image HorizontalAlignment="Left" Height="60" Grid.Column="0" Grid.Row="0" Source="images/atrasGris.png">

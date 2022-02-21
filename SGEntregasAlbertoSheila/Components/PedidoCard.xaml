@@ -11,8 +11,9 @@
 
     <UserControl.Resources>
         <vm:CollectionViewModel x:Key="ColeccionVM"/>
-    </UserControl.Resources>    
-    <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Padding="15">
+    </UserControl.Resources>
+    
+    <Border Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="2" CornerRadius="3" Padding="15" Margin="10">
         
         <Border.Effect>
             <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity=".75"></DropShadowEffect>

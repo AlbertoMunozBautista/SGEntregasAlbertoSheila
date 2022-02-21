@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>appIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -78,7 +81,6 @@
     <Compile Include="Components\PedidoCard.xaml.cs">
       <DependentUpon>PedidoCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\GreaterThanConverter.cs" />
     <Compile Include="EntregasDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,6 +242,7 @@
     <Resource Include="Images\atras.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="appIcon.ico" />
     <Content Include="EntregasDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntregasDataModel.Context.cs</LastGenOutput>
@@ -250,6 +253,7 @@
       <DependentUpon>EntregasDataModel.edmx</DependentUpon>
       <LastGenOutput>EntregasDataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\appIcon.ico" />
     <Resource Include="Images\atrasCrema.png" />
     <Resource Include="Images\atrasGris.png" />
     <Resource Include="Images\clientitosGris.png" />
