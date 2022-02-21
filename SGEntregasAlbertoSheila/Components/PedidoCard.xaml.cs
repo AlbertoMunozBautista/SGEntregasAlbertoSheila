@@ -21,38 +21,40 @@ namespace SGEntregasAlbertoSheila.Components
     /// </summary>
     public partial class PedidoCard : UserControl
     {
+        //Variables necesarias
         CollectionViewModel cvm;
-
         SegundaTabletVentana ventanaPedidos;
         public PedidoCard(SegundaTabletVentana ventanaPedidos)
         {
             InitializeComponent();
+            //Llamamos de nuevo al CollectionViewModel
             cvm = (CollectionViewModel)this.Resources["ColeccionVM"];
+
+            //Llamamos a un metodo según si hacemos click en un item (pedido) o lo tocamos en la parte de tablet
             this.MouseLeftButtonUp += ContenedorCards_MouseLeftButtonUp;
             this.TouchDown += ContenedorCards_TouchDown;
 
             this.ventanaPedidos = ventanaPedidos;
         }
 
+        //Tocamos una tarjeta de manera tácti en la parte de tablet
         private void ContenedorCards_TouchDown(object sender, TouchEventArgs e)
         {
             seleccionTarjetas(sender);
-       
         }
 
         private void ContenedorCards_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             seleccionTarjetas(sender);
             e.Handled = true;
-
         }
-
+        //Si seleccionamos un item de la lista, cogemos el id y abrimos la ventana para firmar pasandole ese pedido en concreto
         private void seleccionTarjetas(object sender)
         {
             //MessageBox.Show(((PedidoCard)sender).idPedido.ToString());
-
             pedidos objPedido = cvm.objBD.pedidos.Find(int.Parse(((PedidoCard)sender).idPedido.ToString()));
 
+            //Abrimos la ventana firma y le pasamos el pedido, el CollectionViewModel y la venta pedidos
             FirmaPedido firmaPedido = new FirmaPedido(objPedido, cvm, ventanaPedidos);
             firmaPedido.ShowDialog();
         }
